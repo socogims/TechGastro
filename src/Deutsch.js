@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Slider from "react-slick"; // npm install react-slick slick-carousel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Collapse } from "@mui/material";
+
 import {
   ThemeProvider,
   createTheme,
@@ -67,10 +67,6 @@ export default function App() {
   const handleMenu = (e) => setAnchorEl(e.currentTarget);
   const handleClose = () => setAnchorEl(null);
 const [openMegaMenu, setOpenMegaMenu] = useState(false);
-const [openServices, setOpenServices] = useState(false);
-const [openAbout, setOpenAbout] = useState(false);
-const [openContact, setOpenContact] = useState(false);
-
 
 let closeTimeout = null;
 
@@ -250,7 +246,7 @@ const fadeInUp = keyframes`
             src="/logoGastroTransparent.png"
             alt="Gastro Soft Logo"
             sx={{
-              height: { xs: 65, md: 90 },
+              height: { xs: 50, md: 60 },
               cursor: "pointer",
               transition: "transform 0.4s ease, filter 0.4s ease",
               "&:hover": {
@@ -275,85 +271,85 @@ const fadeInUp = keyframes`
             onMouseLeave={() => setOpenMegaMenu(false)}
             sx={{ position: "relative" }}
           >
-                    <Button
-            onMouseEnter={openMenu}
-            onMouseLeave={closeMenu}
-            sx={{
-              fontWeight: 700,
-              color: "#0B2341",
-              textTransform: "none",
-              position: "relative",
-              fontSize: "1.05rem",
-              letterSpacing: "0.3px",
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                bottom: -6,
-                left: 0,
-                width: 0,
-                height: 2,
-                bgcolor: "#25D366",
-                transition: "width 0.3s ease",
-                borderRadius: 1,
-              },
-              "&:hover::after": { width: "100%" },
-            }}
-          >
-            Services
-          </Button>
+            <Button
+    onMouseEnter={openMenu}
+    onMouseLeave={closeMenu}
+    sx={{
+      fontWeight: 700,
+      color: "#0B2341",
+      textTransform: "none",
+      position: "relative",
+      fontSize: "1.05rem",
+      letterSpacing: "0.3px",
+      "&::after": {
+        content: '""',
+        position: "absolute",
+        bottom: -6,
+        left: 0,
+        width: 0,
+        height: 2,
+        bgcolor: "#25D366",
+        transition: "width 0.3s ease",
+        borderRadius: 1,
+      },
+      "&:hover::after": { width: "100%" },
+    }}
+  >
+    Leistungen
+  </Button>
 
-                  {openMegaMenu && (
-        <Paper
-          elevation={0}
-          onMouseEnter={openMenu}
-          onMouseLeave={closeMenu}
-          sx={{
-            position: "absolute",
-            top: "100%",
-            left: 0,
-            mt: 1,
-            p: 4,
-            width: "900px",
-            borderRadius: "20px",
-            display: "flex",
-            gap: 6,
+           {openMegaMenu && (
+<Paper
+  elevation={0}
+  onMouseEnter={openMenu}
+  onMouseLeave={closeMenu}
+  sx={{
+    position: "absolute",
+    top: "100%",
+    left: 0,
+    mt: 1,
+    p: 4,
+    width: "900px",
+    borderRadius: "20px",
+    display: "flex",
+    gap: 6,
 
-            /* 🌟 Glass-Effect */
-            backgroundColor: "rgba(255,255,255,0.92)",
-            backdropFilter: "blur(14px) saturate(180%)",
-            border: "1px solid rgba(255,255,255,0.6)",
+    /* 🌟 Glass-Effect */
+    backgroundColor: "rgba(255,255,255,0.92)",
+    backdropFilter: "blur(14px) saturate(180%)",
+    border: "1px solid rgba(255,255,255,0.6)",
 
-            /* 🌟 Premium Shadow */
-            boxShadow:
-              "0 8px 30px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04)",
+    /* 🌟 Premium Shadow */
+    boxShadow:
+      "0 8px 30px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04)",
 
-            /* 💫 Subtle fade-in */
-            animation: "fadeIn 0.35s ease",
+    /* 💫 Subtle fade-in */
+    animation: "fadeIn 0.35s ease",
 
-            /* 🔥 Slight border-glow on hover */
-            transition: "all 0.25s ease",
-            "&:hover": {
-              boxShadow:
-                "0 12px 40px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.06)",
-              border: "1px solid rgba(255,255,255,0.85)",
-            },
-          }}
-        >
+    /* 🔥 Slight border-glow on hover */
+    transition: "all 0.25s ease",
+    "&:hover": {
+      boxShadow:
+        "0 12px 40px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.06)",
+      border: "1px solid rgba(255,255,255,0.85)",
+    },
+  }}
+>
 
                 <Box sx={{ flex: 1 }}>
                   <Typography
                     variant="subtitle1"
                     sx={{ fontWeight: 700, mb: 2, color: "#25D366" }}
                   >
-                    Services
+                    Leistungen
                   </Typography>
 
                   {[
                     { label: "Self Ordering", id: "self-ordering" },
-                    { label: "Kiosque", id: "kiosk" },
+                    { label: "Kiosk", id: "kiosk" },
                     { label: "Webshop", id: "webshop" },
-                    { label: "Réservations de table", id: "tischreservierungen" },
-                    { label: "Écrans d’affichage", id: "abholbildschirme" },
+                    { label: "Tisch Reservierungen", id: "tischreservierungen" },
+                    { label: "Abholbildschirme", id: "abholbildschirme" },
                   ].map((item) => (
                     <Typography
                       key={item.id}
@@ -391,14 +387,15 @@ const fadeInUp = keyframes`
                     variant="subtitle1"
                     sx={{ fontWeight: 700, mb: 2, color: "#25D366" }}
                   >
-                    Domaines
+                    Bereiche
                   </Typography>
                   {[
-                    "Service rapide",
-                    "Salon",
-                    "Aréna & stade",
+                    "Quick Service",
+                    "Messe",
+                    "Arena & Stadion",
                     "Hotel",
-                    "Gastronomie d’expérience",
+                    "Biergarten",
+                    "Erlebnisgastronomie",
                   ].map((bereich) => (
                     <Typography
                       key={bereich}
@@ -466,9 +463,9 @@ const fadeInUp = keyframes`
 
           {/* Andere Menüpunkte */}
           {[
-            { label: "Systèmes de caisse", id: "pos" },
-            { label: "À propos de nous", id: "ueberuns" },
-            { label: "Contact", id: "nav" },
+            { label: "Kassensysteme", id: "pos" },
+            { label: "Über uns", id: "ueberuns" },
+            { label: "Kontakt", id: "nav" },
           ].map((item) => (
             <Button
               key={item.id}
@@ -490,12 +487,35 @@ const fadeInUp = keyframes`
 
         {/* 🌍 CTA + Sprache */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
- 
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {["DE", "EN"].map((lang, i) => (
+              <React.Fragment key={lang}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: { xs: "none", sm: "flex" }, // 👈 ab Tablet sichtbar
+                    fontWeight: 600,
+                    color: "#0B2341",
+                    cursor: "pointer",
+                    "&:hover": { color: "#25D366" },
+                  }}
+                >
+                  {lang}
+                </Typography>
+                {i === 0 && (
+                  <Typography sx={{ color: "gray", display: { xs: "none", sm: "block" } }}>
+                    |
+                  </Typography>
+                )}
+
+              </React.Fragment>
+            ))}
+          </Box>
 
 {/* Mobile Button (XS–SM) */}
 <Button
   variant="contained"
-    href="https://wa.me/491622982160?text=Bonjour!"
+  href="https://wa.me/212600000000?text=Hallo%20GastroSoft!"
   target="_blank"
   sx={{
     display: { xs: "flex", md: "none" }, // 👉 nur auf Mobile sichtbar
@@ -520,7 +540,7 @@ const fadeInUp = keyframes`
 {/* Desktop Button (MD+) */}
 <Button
   variant="contained"
-    href="https://wa.me/491622982160?text=Bonjour!"
+  href="https://wa.me/212600000000?text=Hallo%20GastroSoft!"
   target="_blank"
   sx={{
     display: { xs: "none", md: "flex" }, // 👉 nur Desktop sichtbar
@@ -557,284 +577,136 @@ const fadeInUp = keyframes`
           )}
 
     {/* Mobiles Vollbild-Menü */}
-{/* Mobiles Vollbild-Menü */}
-<Box sx={{ display: { xs: "flex", md: "none" } }}>
-  <IconButton color="inherit" onClick={handleMenu}>
-    <MenuIcon sx={{ fontSize: 28 }} />
-  </IconButton>
+      <Box sx={{ display: { xs: "flex", md: "none" } }}>
+        <IconButton color="inherit" onClick={handleMenu}>
+          <MenuIcon sx={{ fontSize: 28 }} />
+        </IconButton>
 
-  {anchorEl && (
-    <Box
-      sx={{
-        position: "fixed",
-        inset: 0,
-        background: "linear-gradient(160deg, #E8F8EF 0%, #DFF5EA 50%, #D6F2E4 100%)",
-        color: "#0b2341",
-        zIndex: 2000,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        pt: 6,
-        px: 3,
-        overflowY: "auto",
-        animation: "fadeIn 0.4s ease",
-      }}
-      onClick={handleClose}
-    >
-      {/* Header (Logo + Close-Icon optional) */}
+        {anchorEl && (
+          <Box
+          sx={{
+            position: "fixed",
+            inset: 0,
+            background: "linear-gradient(160deg, #081A2B 0%, #0B2341 60%, #071523 100%)", // 👈 Fix!
+            color: "white",
+            zIndex: 2000,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            pt: 6,
+            px: 3,
+            overflowY: "auto",
+            animation: "fadeIn 0.4s ease",
+          }}
+          onClick={handleClose}
+        >
+
+
+      {/* Header des Menüs (Logo + Sprachen) */}
       <Box
         sx={{
           width: "100%",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          mb: 6,
+          mb: 8,
         }}
       >
+        {/* Logo */}
         <Box
           component="img"
-          src="/logoGastroTransparent.png"
+          src="/logo-transparent.png"
           alt="GastroSoft Logo"
           sx={{
-            height: { xs: 65, sm: 70 },
+            height: { xs: 55, sm: 65, md: 75 },
             width: "auto",
+            mr: 1,
             cursor: "pointer",
-            filter: "drop-shadow(0 3px 6px rgba(0,0,0,0.18)) brightness(1.05)",
+            filter:
+              "drop-shadow(0 3px 6px rgba(0,0,0,0.3)) brightness(1.1)",
             transition: "transform 0.3s ease",
-            "&:hover": { transform: "scale(1.08)" },
+            "&:hover": { transform: "scale(1.1)" },
           }}
         />
 
-        <IconButton onClick={handleClose}>
-          <CloseIcon sx={{ color: "#0b2341" }} />
-        </IconButton>
-      </Box>
-
-
-{/* Services – Mobile Akkordeon */}
-<Box sx={{ width: "100%", mb: 4 }}>
-  {/* Header-Zeile (zum Auf-/Zuklappen) */}
-  <Box
-    onClick={(e) => {
-      e.stopPropagation();
-      setOpenServices((prev) => !prev);
-    }}
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      cursor: "pointer",
-      pb: 1.2,
-      borderBottom: "1px solid rgba(0,0,0,0.08)",
-    }}
-  >
-    <Typography
-      sx={{
-        fontWeight: 700,
-        fontSize: "0.9rem",
-        textTransform: "uppercase",
-        letterSpacing: 1,
-        color: "#25D366",
-      }}
-    >
-      Services
-    </Typography>
-
-    <Box
-      component="span"
-      sx={{
-        fontSize: "1.4rem",
-        color: "#0b2341",
-        transform: openServices ? "rotate(90deg)" : "rotate(0deg)",
-        transition: "transform 0.2s ease",
-      }}
-    >
-      ›
-    </Box>
-  </Box>
-
-  {/* Inhalt – klappt ein/aus */}
-  <Collapse in={openServices} timeout="auto" unmountOnExit>
-    <Box sx={{ mt: 1.5 }}>
-      {[
-        { label: "Self Ordering", id: "self-ordering" },
-        { label: "Kiosque", id: "kiosk" },
-        { label: "Webshop", id: "webshop" },
-        { label: "Réservations de table", id: "tischreservierungen" },
-        { label: "Écrans d’affichage", id: "abholbildschirme" },
-        { label: "Systèmes de caisse", id: "pos" },
-      ].map((item) => (
-        <Button
-          key={item.id}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleScrollTo(item.id);
-          }}
-          sx={{
-            color: "#0b2341",
-            justifyContent: "space-between",
-            width: "100%",
-            textTransform: "none",
-            fontSize: "1rem",
-            fontWeight: 600,
-            borderBottom: "1px solid rgba(0,0,0,0.06)",
-            pb: 0.8,
-            "&:hover": {
+        {/* Sprachwahl */}
+        <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
+          <Typography
+            sx={{
               color: "#25D366",
-              transform: "translateX(4px)",
-            },
-            transition: "all 0.3s ease",
-          }}
-        >
-          {item.label}
-          <span style={{ fontSize: "1.2rem", marginLeft: "8px" }}>›</span>
-        </Button>
-      ))}
-    </Box>
-  </Collapse>
-</Box>
-
-
-        {/* ===== Services (wie Desktop Mega-Menü, nur als Liste) ===== */}
-     {/* Contact – Mobile Akkordeon */}
-<Box sx={{ width: "100%", mb: 4 }}>
-
-  {/* Header */}
-  <Box
-    onClick={(e) => {
-      e.stopPropagation();
-      setOpenContact((prev) => !prev);
-    }}
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      cursor: "pointer",
-      pb: 1.2,
-      borderBottom: "1px solid rgba(0,0,0,0.08)",
-    }}
-  >
-    <Typography
-      sx={{
-        fontWeight: 700,
-        fontSize: "0.9rem",
-        textTransform: "uppercase",
-        letterSpacing: 1,
-        color: "#25D366",
-      }}
-    >
-      Contact
-    </Typography>
-
-    <Box
-      component="span"
-      sx={{
-        fontSize: "1.4rem",
-        color: "#0b2341",
-        transform: openContact ? "rotate(90deg)" : "rotate(0deg)",
-        transition: "transform 0.2s ease",
-      }}
-    >
-      ›
-    </Box>
-  </Box>
-
-  {/* Inhalt */}
-  <Collapse in={openContact} timeout="auto" unmountOnExit>
-    <Box sx={{ mt: 1.5 }}>
-      {[
-        { label: "Contact", id: "nav" },
-      ].map((item) => (
-        <Button
-          key={item.id}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleScrollTo(item.id);
-          }}
-          sx={{
-            color: "#0b2341",
-            justifyContent: "space-between",
-            width: "100%",
-            textTransform: "none",
-            fontSize: "1rem",
-            fontWeight: 600,
-            borderBottom: "1px solid rgba(0,0,0,0.06)",
-            pb: 0.8,
-            "&:hover": {
-              color: "#25D366",
-              transform: "translateX(4px)",
-            },
-            transition: "all 0.3s ease",
-          }}
-        >
-          {item.label}
-          <span style={{ fontSize: "1.3rem", marginLeft: "8px" }}>›</span>
-        </Button>
-      ))}
-    </Box>
-  </Collapse>
-</Box>
-
-
-
-      {/* ===== Domaines (nur Anzeige, wie Desktop) ===== */}
-      <Box sx={{ width: "100%", mb: 4 }}>
-        <Typography
-          sx={{
-            fontWeight: 700,
-            fontSize: "0.9rem",
-            textTransform: "uppercase",
-            letterSpacing: 1,
-            color: "#25D366",
-            mb: 1.5,
-          }}
-        >
-          Domaines
-        </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 1,
-          }}
-        >
-          {[
-            "Service rapide",
-            "Salon",
-            "Aréna & stade",
-            "Hôtel",
-            "Gastronomie d’expérience",
-          ].map((bereich) => (
-            <Box
-              key={bereich}
-              sx={{
-                px: 2,
-                py: 0.7,
-                borderRadius: "999px",
-                bgcolor: "rgba(37,211,102,0.12)",
-                fontSize: "0.9rem",
-                fontWeight: 600,
-                color: "#0b2341",
-              }}
-            >
-              {bereich}
-            </Box>
-          ))}
+              fontWeight: 600,
+              fontSize: "0.95rem",
+              cursor: "pointer",
+            }}
+          >
+            DE
+          </Typography>
+          <Typography sx={{ color: "#555" }}>|</Typography>
+          <Typography
+            sx={{
+              color: "white",
+              opacity: 0.8,
+              fontWeight: 500,
+              fontSize: "0.95rem",
+              cursor: "pointer",
+            }}
+          >
+            EN
+          </Typography>
         </Box>
       </Box>
 
-  
+      {/* Menülinks */}
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          gap: 3,
+        }}
+      >
+        {[
+          { id: "how-it-works", label: "Wie es funktioniert" },
+          { id: "solutions", label: "Unsere Lösungen" },
+          { id: "tarifs", label: "Preise" },
+          { id: "about", label: "Über uns" },
+        ].map((item) => (
+          <Button
+            key={item.id}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleScrollTo(item.id);
+            }}
+            sx={{
+              color: "white",
+              justifyContent: "space-between",
+              width: "100%",
+              textTransform: "none",
+              fontSize: "1.1rem",
+              fontWeight: 600,
+              borderBottom: "1px solid rgba(255,255,255,0.1)",
+              pb: 1,
+              "&:hover": {
+                color: "#25D366",
+                transform: "translateX(4px)",
+              },
+              transition: "all 0.3s ease",
+            }}
+          >
+            {item.label}
+            <span style={{ fontSize: "1.5rem", marginLeft: "8px" }}>›</span>
+          </Button>
+        ))}
+      </Box>
 
-      {/* CTA unten */}
+      {/* Schließen + CTA nebeneinander */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          mt: 2,
-          mb: 4,
+          mt: 6,
           gap: 1.5,
         }}
       >
@@ -842,20 +714,19 @@ const fadeInUp = keyframes`
           variant="outlined"
           onClick={handleClose}
           sx={{
-            color: "#0b2341",
-            borderColor: "rgba(11,35,65,0.25)",
+            color: "white",
+            borderColor: "rgba(255,255,255,0.3)",
             fontSize: "0.95rem",
             textTransform: "none",
             borderRadius: "999px",
             px: 3,
             py: 1,
             fontWeight: 500,
-            backgroundColor: "rgba(255,255,255,0.6)",
             transition: "all 0.3s ease",
             "&:hover": {
               color: "#25D366",
               borderColor: "#25D366",
-              backgroundColor: "rgba(37,211,102,0.12)",
+              backgroundColor: "rgba(37,211,102,0.08)",
               transform: "scale(1.05)",
             },
           }}
@@ -872,24 +743,23 @@ const fadeInUp = keyframes`
             borderRadius: "999px",
             px: 3,
             py: 1,
-            boxShadow: "0 4px 14px rgba(37,211,102,0.35)",
+            boxShadow: "0 4px 14px rgba(37,211,102,0.4)",
             "&:hover": {
               bgcolor: "#1ebe5d",
               transform: "scale(1.05)",
-              boxShadow: "0 6px 18px rgba(37,211,102,0.45)",
+              boxShadow: "0 6px 18px rgba(37,211,102,0.5)",
             },
             transition: "all 0.3s ease",
           }}
-          href="https://wa.me/491622982160?text=Bonjour!"
+          href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
           target="_blank"
         >
           Kostenlos testen
         </Button>
       </Box>
     </Box>
-  )}
-</Box>
-
+    )}
+  </Box>
 
 
           {/* 🩺 HERO SECTION — Text links, Bild rechts, Buttons (gleiches Layout) */}
@@ -952,7 +822,7 @@ const fadeInUp = keyframes`
         textTransform: "uppercase",
       }}
     >
-      Pour les restaurants & cafés d’aujourd’hui
+      Für Restaurants & Cafés von heute
     </Typography>
 
     <Typography
@@ -964,7 +834,7 @@ const fadeInUp = keyframes`
         lineHeight: 1.2,
       }}
     >
-    Lorsque les équipes sont débordées, <br />Techgastro assure la continuité du service.
+      Wenn Service knapp ist,<br />springt Gastrosoft ein.
     </Typography>
 
     <Typography
@@ -978,8 +848,8 @@ const fadeInUp = keyframes`
         lineHeight: 1.4,
       }}
     >
-     Commander en digital. Payer rapidement. Profiter en toute tranquillité. <br />
-<strong>Techgastro</strong> – la solution intelligente pour les restaurants & cafés modernes.
+      Digital bestellen. Schnell bezahlen. Entspannt genießen. <br />
+      <strong>Gastrosoft</strong> – die smarte Lösung für moderne Restaurants & Cafés.
     </Typography>
 
     <Button
@@ -994,10 +864,10 @@ const fadeInUp = keyframes`
         py: { xs: 1, md: 1.5 },
         "&:hover": { bgcolor: "#1ebe5d" },
       }}
-      href="https://wa.me/491622982160?text=Bonjour!"
+      href="https://wa.me/49123456789?text=Hallo%20Gastrosoft!"
       target="_blank"
     >
-Découvrir Techgastro maintenant
+      Jetzt Gastrosoft entdecken
     </Button>
   </Container>
 </Box>
@@ -1009,7 +879,8 @@ Découvrir Techgastro maintenant
 
   
 
-{/* 🔄 Self-Ordering */}
+
+{/* 🔄 Self Ordering */}
 <Box
   id="self-ordering"
   sx={{
@@ -1020,8 +891,8 @@ Découvrir Techgastro maintenant
   }}
 >
 
-  {/* 📱 LAYOUT MOBILE (Titre → Image → Description) */}
-  {/* 📱 LAYOUT MOBILE */}
+  {/* 📱 MOBILE LAYOUT (Titel → Bild → Beschreibung) */}
+    {/* 📱 MOBILE LAYOUT */}
   <Container
     maxWidth="lg"
     sx={{
@@ -1029,11 +900,11 @@ Découvrir Techgastro maintenant
       flexDirection: "column",
       alignItems: "center",
       textAlign: "center",
-      gap: 3, // moins d’espace pour le mobile
-      px: 2, // padding pour les petits écrans
+      gap: 3, // weniger Abstand für Mobile
+      px: 2, // Padding für kleine Screens
     }}
   >
-    {/* Titre */}
+    {/* Titel */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1050,7 +921,7 @@ Découvrir Techgastro maintenant
           fontSize: "0.8rem",
         }}
       >
-        Commander digitalement en toute simplicité
+        Digital bestellen leicht gemacht
       </Typography>
 
       <Typography
@@ -1064,12 +935,12 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Self-ordering avec QR-Code – <br />
-        rapide, simple & sans contact
+        Self-Ordering mit QR-Code – <br />
+        schnell, einfach & kontaktlos
       </Typography>
     </motion.div>
 
-    {/* Image */}
+    {/* Bild */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1080,10 +951,10 @@ Découvrir Techgastro maintenant
       <Box
         component="img"
         src="/selfordering.png"
-        alt="Application self-ordering sur iPhone"
+        alt="Self-Ordering App auf iPhone"
         sx={{
           width: "100%",
-          maxWidth: 320, // plus petit pour le mobile
+          maxWidth: 320, // kleiner für Mobile
           borderRadius: "20px",
           boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
           transform: "rotate(-4deg)",
@@ -1095,7 +966,7 @@ Découvrir Techgastro maintenant
       />
     </motion.div>
 
-    {/* Description */}
+    {/* Beschreibung */}
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1111,17 +982,12 @@ Découvrir Techgastro maintenant
           mb: 3,
         }}
       >
-        Avec <strong>Techgastro QR-Ordering</strong>, vos clients commandent
-        confortablement depuis la table – sans devoir attendre le serveur.  
-        Ils scannent le QR-Code, consultent la carte numérique, commandent
-        et paient directement.  
+        Mit <strong>Gastrosoft QR-Ordering</strong> bestellen deine Gäste bequem vom Tisch aus – ohne auf den Kellner warten zu müssen.  
+        QR-Code scannen, digitale Speisekarte sehen, bestellen und direkt bezahlen.  
         <br /><br />
-        Commande prête → <strong>notification WhatsApp automatique</strong> 
-        ou affichage sur l’<strong>écran de retrait</strong>.  
+        Bestellung fertig → automatische <strong>WhatsApp-Benachrichtigung</strong> oder Anzeige auf dem <strong>Abholbildschirm</strong>.  
         <br /><br />
-        Réduisez les temps d’attente, augmentez la fréquence des commandes
-        et soulagez votre équipe – idéal en cas de <strong>manque de personnel</strong>
-        ou de forte affluence.
+        Wartezeiten reduzieren, Bestellfrequenz erhöhen, Team entlasten – ideal bei <strong>Kellnermangel</strong> oder hohem Gästeaufkommen.
       </Typography>
 
       <Button
@@ -1139,145 +1005,142 @@ Découvrir Techgastro maintenant
             bgcolor: "#1ebe5d",
             transform: "translateY(-3px)",
           },
-          width: "100%", // bouton en pleine largeur sur mobile
+          width: "100%", // Button auf Mobile volle Breite
           maxWidth: 280,
           mx: "auto",
         }}
-          href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
         target="_blank"
       >
-        Tester le self-ordering maintenant
+        Jetzt Self-Ordering testen
       </Button>
     </motion.div>
   </Container>
 
-  {/* 💻 LAYOUT DESKTOP (Image à gauche, texte à droite) */}
- <Container
-  maxWidth="lg"
-  sx={{
-    display: { xs: "none", md: "flex" },
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-  }}
->
-
-  {/* Texte à gauche */}
-  <motion.div
-    initial={{ opacity: 0, x: -50 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 1 }}
-    viewport={{ once: true }}
-    style={{ flex: 1 }}
-  >
-    <Typography
-      variant="overline"
-      sx={{
-        color: "#25D366",
-        fontWeight: 700,
-        textTransform: "uppercase",
-        letterSpacing: 1.5,
-      }}
-    >
-      Commander digitalement en toute simplicité
-    </Typography>
-
-    <Typography
-      variant="h3"
-      sx={{
-        fontWeight: 800,
-        fontSize: { md: "2.8rem" },
-        lineHeight: 1.2,
-        mb: 3,
-        color: "#0b2341",
-      }}
-    >
-      Self-ordering avec QR-Code –  
-      <br />
-      rapide, simple & sans contact
-    </Typography>
-
-    <Typography
-      sx={{
-        fontSize: "1.1rem",
-        lineHeight: 1.8,
-        color: "rgba(0,0,0,0.75)",
-        mb: 4,
-        maxWidth: 550,
-      }}
-    >
-      Avec <strong>Techgastro QR-Ordering</strong>, vos clients commandent
-      très facilement depuis la table – sans devoir attendre le serveur.  
-      Ils scannent simplement le QR-Code, voient votre carte numérique,
-      commandent et paient directement.
-
-      <br /><br />
-      Dès que la commande est prête, le client reçoit automatiquement une 
-      <strong> notification WhatsApp </strong> ou voit son numéro sur
-      l’<strong> écran de retrait </strong>.
-
-      <br /><br />
-      Vous réduisez ainsi les temps d’attente, augmentez la fréquence des commandes
-      et soulagez votre équipe – idéal en cas de <strong>manque de personnel</strong>
-      ou de forte affluence.
-    </Typography>
-
-    <Button
-      variant="contained"
-      sx={{
-        bgcolor: "#25D366",
-        color: "white",
-        fontWeight: 700,
-        fontSize: "1.1rem",
-        px: 5,
-        py: 1.5,
-        borderRadius: "50px",
-        boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
-        "&:hover": {
-          bgcolor: "#1ebe5d",
-          transform: "translateY(-4px)",
-        },
-      }}
-      href="https://wa.me/491622982160?text=Bonjour!"
-      target="_blank"
-    >
-      Tester le self-ordering
-    </Button>
-  </motion.div>
-
-  {/* Image à droite */}
-  <motion.div
-    initial={{ opacity: 0, x: 40 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 1 }}
-    viewport={{ once: true }}
-    style={{
-      flex: 1,
-      display: "flex",
-      justifyContent: "center",
+  {/* 💻 DESKTOP LAYOUT (Bild links, Text rechts) */}
+  <Container
+    maxWidth="lg"
+    sx={{
+      display: { xs: "none", md: "flex" },
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 10,
     }}
   >
-    <Box
-      component="img"
-      src="/selfordering.png"
-      alt="Application self-ordering sur iPhone"
-      sx={{
-        width: "100%",
-        maxWidth: 460,
-        borderRadius: "30px",
-        boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
-        transform: "rotate(4deg)", // 👉 leichte Gegenrotation für visuelles Gleichgewicht
-        transition: "transform 0.5s ease",
-        "&:hover": {
-          transform: "rotate(0deg) scale(1.03)",
-        },
+    {/* Bild links */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      style={{
+        flex: 1,
+        display: "flex",
+        justifyContent: "center",
       }}
-    />
-  </motion.div>
+    >
+      <Box
+        component="img"
+        src="/selfordering.png"
+        alt="Self-Ordering App auf iPhone"
+        sx={{
+          width: "100%",
+          maxWidth: 460,
+          borderRadius: "30px",
+          boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
+          transform: "rotate(-4deg)",
+          transition: "transform 0.5s ease",
+          "&:hover": {
+            transform: "rotate(0deg) scale(1.03)",
+          },
+        }}
+      />
+    </motion.div>
 
-</Container>
+    {/* Text rechts */}
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      style={{ flex: 1 }}
+    >
+      <Typography
+        variant="overline"
+        sx={{
+          color: "#25D366",
+          fontWeight: 700,
+          textTransform: "uppercase",
+          letterSpacing: 1.5,
+        }}
+      >
+        Digital bestellen leicht gemacht
+      </Typography>
 
-  {/* 🌿 Décoration d’arrière-plan */}
+      <Typography
+        variant="h3"
+        sx={{
+          fontWeight: 800,
+          fontSize: { md: "2.8rem" },
+          lineHeight: 1.2,
+          mb: 3,
+          color: "#0b2341",
+        }}
+      >
+        Self-Ordering mit QR-Code –  
+        <br />
+        schnell, einfach & kontaktlos
+      </Typography>
+
+      <Typography
+        sx={{
+          fontSize: "1.1rem",
+          lineHeight: 1.8,
+          color: "rgba(0,0,0,0.75)",
+          mb: 4,
+          maxWidth: 550,
+        }}
+      >
+        Mit <strong>Gastrosoft QR-Ordering</strong> bestellen deine Gäste ganz bequem
+        vom Tisch aus – ohne auf den Kellner warten zu müssen.  
+        Sie scannen einfach den QR-Code, sehen deine digitale Speisekarte,
+        bestellen und bezahlen direkt per Karte oder Bar.  
+
+        <br /><br />
+        Sobald die Bestellung fertig ist, erhält der Gast automatisch eine 
+        <strong> WhatsApp-Benachrichtigung </strong> oder sieht seine Nummer auf dem 
+        <strong> Abholbildschirm </strong> – ganz ohne manuelle Zwischenrufe oder Wartechaos.  
+
+        <br /><br />
+        So reduzierst du Wartezeiten, erhöhst die Bestellfrequenz
+        und entlastest dein Team – ideal bei <strong>Kellnermangel</strong> oder hohem Gästeaufkommen.
+      </Typography>
+
+      <Button
+        variant="contained"
+        sx={{
+          bgcolor: "#25D366",
+          color: "white",
+          fontWeight: 700,
+          fontSize: "1.1rem",
+          px: 5,
+          py: 1.5,
+          borderRadius: "50px",
+          boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
+          "&:hover": {
+            bgcolor: "#1ebe5d",
+            transform: "translateY(-4px)",
+          },
+        }}
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
+        target="_blank"
+      >
+        Jetzt Self-Ordering testen
+      </Button>
+    </motion.div>
+  </Container>
+
+  {/* 🌿 Hintergrund-Deko */}
   <motion.div
     style={{
       position: "absolute",
@@ -1302,7 +1165,7 @@ Découvrir Techgastro maintenant
 </Box>
 
 
-{/* 🔥 KSD – Moniteur de cuisine digital */}
+{/* 🔥 KSD – Digitaler Küchenmonitor */}
 <Box
   id="ksd-monitor"
   sx={{
@@ -1313,7 +1176,7 @@ Découvrir Techgastro maintenant
   }}
 >
 
-  {/* 📱 LAYOUT MOBILE */}
+  {/* 📱 MOBILE LAYOUT */}
   <Container
     maxWidth="lg"
     sx={{
@@ -1326,7 +1189,7 @@ Découvrir Techgastro maintenant
     }}
   >
 
-    {/* Titre */}
+    {/* Titel */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1342,7 +1205,7 @@ Découvrir Techgastro maintenant
           fontSize: "0.8rem",
         }}
       >
-        Cuisine moderne. Organisation digitale.
+        Moderne Küche. Digital organisiert.
       </Typography>
 
       <Typography
@@ -1356,13 +1219,13 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        KSD – ton moniteur de cuisine digital  
-        pour des processus rapides & sans erreur
+        KSD – Dein digitaler Küchenmonitor  
+        für schnelle & fehlerfreie Abläufe
       </Typography>
     </motion.div>
 
-    {/* Image */}
-   {/* Image — optimisé pour mobile */}
+    {/* Bild */}
+ 
 <motion.div
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -1373,23 +1236,24 @@ Découvrir Techgastro maintenant
   <Box
     component="img"
     src="/ksd.png"
-    alt="KSD – Moniteur de cuisine"
+    alt="Self-Ordering App auf iPhone"
     sx={{
-      width: { xs: "75%", sm: "70%" },   // 👉 kleiner & eleganter
-      maxWidth: 320,                     // 👉 statt 420–520px
-      borderRadius: "18px",
-      boxShadow: "0 12px 30px rgba(0,0,0,0.10)",
-      transform: "rotate(-3deg) scale(1.02)",   // 👉 subtiler
-      transition: "transform 0.45s ease",
+      width: { xs: "90%", sm: "80%", md: "70%" },   // <-- deutlich größer auf kleinen Screens
+      maxWidth: { xs: 420, sm: 480, md: 520 },      // <-- Mobile: bis zu 420px groß
+      borderRadius: "20px",
+      boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+      transform: "rotate(-4deg) scale(1.08)",       // <-- Grund-Zoom für bessere Sichtbarkeit
+      transformOrigin: "center",
+      transition: "transform 0.5s ease",
       "&:hover": {
-        transform: "rotate(0deg) scale(1.05)",  // sanftes Hover
+        transform: "rotate(0deg) scale(1.12)",
       },
     }}
   />
 </motion.div>
 
 
-    {/* Description */}
+    {/* Beschreibung */}
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1405,20 +1269,16 @@ Découvrir Techgastro maintenant
           mb: 3,
         }}
       >
-        Notre <strong>moniteur de cuisine KSD</strong> propulse ta cuisine 
-        dans l’ère moderne de la restauration – complètement 
-        <strong> sans imprimante de cuisine </strong>, si tu le souhaites.  
-        Les commandes apparaissent en quelques secondes, de façon digitale,
-        claire et triées par zone.  
+        Unser <strong>KSD Küchenmonitor</strong> bringt deine Küche in das moderne
+        Gastro-Zeitalter – komplett <strong>ohne Küchen­drucker</strong>, wenn du willst.  
+        Bestellungen erscheinen sekundenschnell digital, übersichtlich und sortiert nach Bereich.  
 
         <br /><br />
-        Plus de tickets papier, plus de chaos, plus de commandes perdues.  
-        KSD s’intègre parfaitement dans une cuisine efficace et rapide
-        et réduit les erreurs au minimum.
+        Keine Bons mehr, kein Papierchaos, keine verlorenen Bestellungen.  
+        KSD passt perfekt zu einer effizienten, schnellen Küche und reduziert Fehler auf ein Minimum.
 
         <br /><br />
-        Et si tu préfères, tu peux toujours <strong>intégrer des imprimantes de cuisine</strong> –
-        aussi flexible que ta cuisine en a besoin.
+        Auf Wunsch kannst du trotzdem <strong>Küchendrucker integrieren</strong> – flexibel, wie deine Küche es braucht.
       </Typography>
 
       <Button
@@ -1437,15 +1297,15 @@ Découvrir Techgastro maintenant
           maxWidth: 280,
           mx: "auto",
         }}
-          href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
         target="_blank"
       >
-        Découvrir KSD maintenant
+        KSD jetzt kennenlernen
       </Button>
     </motion.div>
   </Container>
 
-  {/* 💻 LAYOUT DESKTOP (Image à gauche, texte à droite) */}
+  {/* 💻 DESKTOP LAYOUT (Bild links, Text rechts) */}
   <Container
     maxWidth="lg"
     sx={{
@@ -1456,7 +1316,7 @@ Découvrir Techgastro maintenant
     }}
   >
 
-    {/* Image */}
+    {/* Bild */}
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1464,23 +1324,24 @@ Découvrir Techgastro maintenant
       viewport={{ once: true }}
       style={{ flex: 1, display: "flex", justifyContent: "center" }}
     >
-      <Box
-        component="img"
-        src="/ksd.png"
-        alt="Moniteur de cuisine digital"
-        sx={{
-          width: "100%",
-          maxWidth: 600,        // auparavant 460, maintenant plus grand
-          borderRadius: "30px",
-          boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
-          transform: "rotate(-3deg)",
-          transition: "transform 0.5s ease",
-          "&:hover": { transform: "rotate(0deg) scale(1.03)" },
-        }}
-      />
+  <Box
+  component="img"
+  src="/ksd.png"
+  alt="Digitaler Küchenmonitor"
+  sx={{
+    width: "100%",
+    maxWidth: 600,        // <-- vorher 460, jetzt größer
+    borderRadius: "30px",
+    boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
+    transform: "rotate(-3deg)",
+    transition: "transform 0.5s ease",
+    "&:hover": { transform: "rotate(0deg) scale(1.03)" },
+  }}
+/>
+
     </motion.div>
 
-    {/* Texte */}
+    {/* Text */}
     <motion.div
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -1496,7 +1357,7 @@ Découvrir Techgastro maintenant
           letterSpacing: 1.5,
         }}
       >
-        Organisation moderne de la cuisine
+        Moderne Küchenorganisation
       </Typography>
 
       <Typography
@@ -1509,8 +1370,8 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        KSD – moniteur de cuisine digital  
-        pour une efficacité & une clarté maximales
+        KSD – Digitaler Küchenmonitor  
+        für maximale Effizienz & Klarheit
       </Typography>
 
       <Typography
@@ -1522,18 +1383,18 @@ Découvrir Techgastro maintenant
           maxWidth: 550,
         }}
       >
-        Avec le <strong>moniteur de cuisine KSD</strong>, les commandes arrivent
-        dans ta cuisine de manière digitale, claire et sans délai.  
-        Idéal pour les concepts modernes comme le <strong>self-ordering, service au comptoir,
-        fast-food, food-courts</strong> et bien plus encore.
+        Mit dem <strong>KSD Küchenmonitor</strong> laufen Bestellungen digital,
+        übersichtlich und ohne Verzögerung in deiner Küche ein.  
+        Ideal für moderne Konzepte wie <strong>Self-Ordering, Thekenservice,
+        Schnellrestaurants, Foodcourts</strong> und mehr.
 
         <br /><br />
-        Dis adieu au chaos des tickets papier :  
-        <strong>100% digital, aucune imprimante nécessaire</strong> – sauf si tu en veux une.
+        Verabschiede dich vom Papierchaos:  
+        <strong>100% digital, kein Drucker notwendig</strong> – außer du möchtest einen.
 
         <br /><br />
-        KSD réduit les erreurs, accélère les processus et apporte plus de calme
-        et de structure à ton équipe – même en période de forte affluence.
+        KSD sorgt für weniger Fehler, schnellere Abläufe und ein ruhigeres,
+        strukturierteres Team – selbst bei hohem Bestellaufkommen.
       </Typography>
 
       <Button
@@ -1549,15 +1410,15 @@ Découvrir Techgastro maintenant
           boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
           "&:hover": { bgcolor: "#1ebe5d", transform: "translateY(-4px)" },
         }}
-          href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
         target="_blank"
       >
-        Voir KSD en action
+        KSD live sehen
       </Button>
     </motion.div>
   </Container>
 
-  {/* 🌿 Décoration d’arrière-plan */}
+  {/* 🌿 Hintergrund-Deko */}
   <motion.div
     style={{
       position: "absolute",
@@ -1575,8 +1436,7 @@ Découvrir Techgastro maintenant
 </Box>
 
 
-
-{/* 💫 Système de kiosque */}
+{/* 💫 Kiosk-System */}
 <Box
   id="kiosk"
   sx={{
@@ -1586,7 +1446,7 @@ Découvrir Techgastro maintenant
     overflow: "hidden",
   }}
 >
-  {/* 📱 LAYOUT MOBILE */}
+  {/* 📱 MOBILE LAYOUT */}
   <Container
     maxWidth="lg"
     sx={{
@@ -1594,11 +1454,11 @@ Découvrir Techgastro maintenant
       flexDirection: "column",
       alignItems: "center",
       textAlign: "center",
-      gap: 3, // un peu plus compact sur mobile
+      gap: 3, // etwas kompakter auf Mobile
       px: 2,
     }}
   >
-    {/* Titre */}
+    {/* Titel */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1615,7 +1475,7 @@ Découvrir Techgastro maintenant
           fontSize: "0.8rem",
         }}
       >
-        Commande moderne au kiosque
+        Modernes Bestellen am Kiosk
       </Typography>
 
       <Typography
@@ -1629,12 +1489,12 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Le <strong>système de kiosque Techgastro</strong> – <br />
-        rapide, efficace & intuitif
+        Das <strong>Gastrosoft Kiosk-System</strong> – <br />
+        schnell, effizient & intuitiv
       </Typography>
     </motion.div>
 
-    {/* Image */}
+    {/* Bild */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1645,10 +1505,10 @@ Découvrir Techgastro maintenant
       <Box
         component="img"
         src="/kiosk-gastrosoft.png"
-        alt="Système de kiosque Gastrosoft"
+        alt="Gastrosoft Kiosk-System"
         sx={{
           width: "100%",
-          maxWidth: 320, // plus petit pour mobile
+          maxWidth: 320, // kleiner für Mobile
           borderRadius: "20px",
           boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
           transform: "rotate(1deg)",
@@ -1660,7 +1520,7 @@ Découvrir Techgastro maintenant
       />
     </motion.div>
 
-    {/* Description */}
+    {/* Beschreibung */}
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1676,14 +1536,11 @@ Découvrir Techgastro maintenant
           mb: 3,
         }}
       >
-        Ton <strong>système de kiosque</strong> permet à tes clients de commander
-        directement dans le restaurant – sans faire la queue.  
-        Parfaitement connecté à ta <strong>caisse Techgastro</strong>, les commandes
-        arrivent automatiquement dans le système de cuisine.  
+        Dein <strong>Kiosk-System</strong> ermöglicht es Gästen, direkt im Restaurant
+        selbst zu bestellen – ganz ohne Warteschlange.  
+        Nahtlos verbunden mit deiner <strong>Gastrosoft-Kasse</strong>, fließen Bestellungen automatisch ins Küchensystem.  
         <br /><br />
-        Que ce soit à <strong>l’heure du déjeuner</strong> ou en période de <strong>forte affluence</strong> –
-        ton équipe reste soulagée, pendant que les clients commandent et paient
-        rapidement et sans contact.
+        Ob zur <strong>Mittagszeit</strong> oder bei <strong>großem Andrang</strong> – dein Team bleibt entlastet, während Gäste schnell und kontaktlos bestellen und bezahlen.
       </Typography>
 
       <Button
@@ -1696,24 +1553,24 @@ Découvrir Techgastro maintenant
           px: 4,
           py: 1.2,
           borderRadius: "50px",
-          boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+          boxShadow: "0 6px 20px rgba(37,211,102,0.25)",
           "&:hover": {
             bgcolor: "#1ebe5d",
             transform: "translateY(-3px)",
           },
-          width: "100%", // pleine largeur sur mobile
+          width: "100%", // volle Breite auf Mobile
           maxWidth: 280,
           mx: "auto",
         }}
-         href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20das%20Kiosk-System%20erfahren."
         target="_blank"
       >
-        Découvrir le système de kiosque
+        Jetzt Kiosk-System entdecken
       </Button>
     </motion.div>
   </Container>
 
-  {/* 💻 LAYOUT DESKTOP (comme avant) */}
+  {/* 💻 DESKTOP LAYOUT (wie bisher) */}
   <Container
     maxWidth="lg"
     sx={{
@@ -1723,7 +1580,7 @@ Découvrir Techgastro maintenant
       gap: 10,
     }}
   >
-    {/* ✨ Zone de texte à gauche */}
+    {/* ✨ Textbereich links */}
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -1740,7 +1597,7 @@ Découvrir Techgastro maintenant
           letterSpacing: 1.5,
         }}
       >
-        Commande moderne au kiosque
+        Modernes Bestellen am Kiosk
       </Typography>
 
       <Typography
@@ -1753,9 +1610,9 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Le <strong>système de kiosque Techgastro</strong> –  
+        Das <strong>Gastrosoft Kiosk-System</strong> –  
         <br />
-        rapide, efficace & intuitif
+        schnell, effizient & intuitiv
       </Typography>
 
       <Typography
@@ -1767,14 +1624,13 @@ Découvrir Techgastro maintenant
           maxWidth: 550,
         }}
       >
-        Ton <strong>système de kiosque</strong> permet à tes clients de commander
-        directement dans le restaurant – sans file d’attente.  
-        Le système est parfaitement intégré à ta <strong>caisse Techgastro</strong>,
-        de sorte que les commandes arrivent automatiquement dans la cuisine.  
+        Dein <strong>Kiosk-System</strong> ermöglicht es Gästen, direkt im Restaurant
+        selbst zu bestellen – ganz ohne Warteschlange.  
+        Das System ist nahtlos mit deiner <strong>Gastrosoft-Kasse</strong> verbunden,
+        sodass Bestellungen automatisch ins Küchensystem fließen.  
         <br /><br />
-        Que ce soit à <strong>l’heure du déjeuner</strong> ou en cas de <strong>forte affluence</strong> –
-        ton équipe reste soulagée, pendant que les clients commandent et paient
-        rapidement et sans contact.
+        Ob zur <strong>Mittagszeit</strong> oder bei <strong>großem Andrang</strong> – dein Team
+        bleibt entlastet, während Gäste schnell und kontaktlos bestellen und bezahlen.
       </Typography>
 
       <Button
@@ -1787,20 +1643,20 @@ Découvrir Techgastro maintenant
           px: 5,
           py: 1.5,
           borderRadius: "50px",
-          boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
+          boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
           "&:hover": {
             bgcolor: "#1ebe5d",
             transform: "translateY(-4px)",
           },
         }}
-        href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20das%20Kiosk-System%20erfahren."
         target="_blank"
       >
-        Découvrir le système de kiosque
+        Jetzt Kiosk-System entdecken
       </Button>
     </motion.div>
 
-    {/* 🖥️ Image à droite */}
+    {/* 🖥️ Bild rechts */}
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -1815,7 +1671,7 @@ Découvrir Techgastro maintenant
       <Box
         component="img"
         src="/kiosk-gastrosoft.png"
-        alt="Système de kiosque Gastrosoft"
+        alt="Gastrosoft Kiosk-System"
         sx={{
           width: "100%",
           maxWidth: 520,
@@ -1831,7 +1687,7 @@ Découvrir Techgastro maintenant
     </motion.div>
   </Container>
 
-  {/* 💫 Décoration d’arrière-plan */}
+  {/* 💫 Hintergrund-Deko */}
   <motion.div
     style={{
       position: "absolute",
@@ -1855,8 +1711,6 @@ Découvrir Techgastro maintenant
   />
 </Box>
 
-
-
 <Box
   sx={{
     py: { xs: 6, md: 10 },
@@ -1865,7 +1719,7 @@ Découvrir Techgastro maintenant
   }}
 >
   <Container maxWidth="lg">
-    {/* Titre */}
+    {/* Titel */}
     <Typography
       sx={{
         fontSize: { xs: "1.8rem", md: "3rem" },
@@ -1875,7 +1729,7 @@ Découvrir Techgastro maintenant
         mb: 4,
       }}
     >
-      Écran de retrait digital
+      Digitaler Abholbildschirm
     </Typography>
 
     <Typography
@@ -1888,12 +1742,11 @@ Découvrir Techgastro maintenant
         mb: 6,
       }}
     >
-      Affiche les numéros de commande de manière claire et lisible.
-      Parfaitement intégré à notre système moderne de commande au kiosque –
-      rapide, efficace et orienté client.
+      Zeige Bestellnummern klar und übersichtlich an. Perfekt integriert in
+      unser modernes Kiosk-Bestellsystem – schnell, effizient und kundenfreundlich.
     </Typography>
 
-    {/* Image + fonctionnalités côte à côte */}
+    {/* Bild + Features nebeneinander */}
     <Box
       sx={{
         display: "flex",
@@ -1902,18 +1755,19 @@ Découvrir Techgastro maintenant
         gap: 5,
       }}
     >
-      <Box
-        component="img"
-        src="/abholbildschirm.png"
-        alt="Écran de retrait digital"
-        sx={{
-          width: { xs: "120%", md: "60%" },
-          borderRadius: 4,
-          boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
-        }}
-      />
+ <Box
+  component="img"
+  src="/abholbildschirm.png"
+  alt="Digitaler Abholbildschirm"
+  sx={{
+    width: { xs: "120%", md: "60%" },  // <-- mehr Platz einnehmen
+    borderRadius: 4,
+    boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
+  }}
+/>
 
-      {/* Cartes de fonctionnalités à droite */}
+
+      {/* Feature Cards rechts */}
       <Box
         sx={{
           width: { xs: "100%", md: "48%" },
@@ -1922,7 +1776,7 @@ Découvrir Techgastro maintenant
           gap: 3,
         }}
       >
-        {/* Carte 1 */}
+        {/* Card 1 */}
         <Box
           sx={{
             p: 3,
@@ -1934,14 +1788,14 @@ Découvrir Techgastro maintenant
           <Typography
             sx={{ color: "#25D366", fontWeight: 700, mb: 1, fontSize: "1.2rem" }}
           >
-            Affichage en temps réel
+            Live-Anzeige
           </Typography>
           <Typography sx={{ color: "#4A5568", lineHeight: 1.6 }}>
-            Les numéros de commande se mettent à jour en temps réel – sans rechargement.
+            Die Bestellnummern aktualisieren sich in Echtzeit – ohne Neuladen.
           </Typography>
         </Box>
 
-        {/* Carte 2 */}
+        {/* Card 2 */}
         <Box
           sx={{
             p: 3,
@@ -1953,14 +1807,14 @@ Découvrir Techgastro maintenant
           <Typography
             sx={{ color: "#25D366", fontWeight: 700, mb: 1, fontSize: "1.2rem" }}
           >
-            Grande & claire visibilité
+            Große & klare Darstellung
           </Typography>
           <Typography sx={{ color: "#4A5568", lineHeight: 1.6 }}>
-            Parfaitement lisible – même dans des restaurants bruyants et bondés.
+            Perfekt sichtbar – selbst in lauten und vollen Restaurants.
           </Typography>
         </Box>
 
-        {/* Carte 3 */}
+        {/* Card 3 */}
         <Box
           sx={{
             p: 3,
@@ -1972,14 +1826,14 @@ Découvrir Techgastro maintenant
           <Typography
             sx={{ color: "#25D366", fontWeight: 700, mb: 1, fontSize: "1.2rem" }}
           >
-            Synchronisé avec le kiosque
+            Synchronisiert mit Kiosk
           </Typography>
           <Typography sx={{ color: "#4A5568", lineHeight: 1.6 }}>
-            La cuisine clique sur « Terminé » → affichage immédiat sur l’écran.
+            Küche klickt auf „Fertig“ → sofort auf dem Bildschirm sichtbar.
           </Typography>
         </Box>
 
-        {/* Carte 4 */}
+        {/* Card 4 */}
         <Box
           sx={{
             p: 3,
@@ -1991,20 +1845,20 @@ Découvrir Techgastro maintenant
           <Typography
             sx={{ color: "#25D366", fontWeight: 700, mb: 1, fontSize: "1.2rem" }}
           >
-            Branding personnalisé
+            Individuelles Branding
           </Typography>
           <Typography sx={{ color: "#4A5568", lineHeight: 1.6 }}>
-            Couleurs, logo et mise en page s’adaptent à l’identité de ton restaurant.
+            Farben, Logo und Layout passen sich deinem Restaurant an.
           </Typography>
         </Box>
       </Box>
     </Box>
 
-    {/* Bouton */}
+    {/* Button */}
     <Box sx={{ textAlign: "center", mt: 6 }}>
       <Button
         variant="contained"
-        href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20GastroSoft!"
         target="_blank"
         sx={{
           bgcolor: "linear-gradient(90deg, #25D366, #1ebe5d)",
@@ -2022,16 +1876,18 @@ Découvrir Techgastro maintenant
           },
         }}
       >
-        <Box sx={{ display: { xs: "block", md: "none" } }}>Essayer</Box>
+        <Box sx={{ display: { xs: "block", md: "none" } }}>Testen</Box>
         <Box sx={{ display: { xs: "none", md: "block" } }}>
-          Essayer gratuitement
+          Kostenlos testen
         </Box>
       </Button>
     </Box>
   </Container>
 </Box>
 
+
 {/* 🌐 Webshop Showcase Section */}
+
 <Box
   id="webshop"
   sx={{
@@ -2041,7 +1897,7 @@ Découvrir Techgastro maintenant
     overflow: "hidden",
   }}
 >
-  {/* 📱 LAYOUT MOBILE */}
+  {/* 📱 MOBILE LAYOUT */}
   <Container
     maxWidth="lg"
     sx={{
@@ -2053,7 +1909,7 @@ Découvrir Techgastro maintenant
       px: 2,
     }}
   >
-    {/* Titre */}
+    {/* Titel */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2070,7 +1926,7 @@ Découvrir Techgastro maintenant
           fontSize: "0.8rem",
         }}
       >
-        Vendre en ligne – sans commission
+        Verkaufe online – ohne Provision
       </Typography>
 
       <Typography
@@ -2084,11 +1940,11 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Ta propre boutique en ligne –<br /> moderne, indépendante & sans commission
+        Dein eigener Webshop –<br /> modern, unabhängig & provisionsfrei
       </Typography>
     </motion.div>
 
-    {/* Image sous le titre */}
+    {/* Bild unter Titel */}
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2099,7 +1955,7 @@ Découvrir Techgastro maintenant
       <Box
         component="img"
         src="/webshop2.png"
-        alt="Aperçu de la boutique en ligne"
+        alt="Webshop Showcase"
         sx={{
           width: "100%",
           maxWidth: 320,
@@ -2109,7 +1965,7 @@ Découvrir Techgastro maintenant
       />
     </motion.div>
 
-    {/* Description */}
+    {/* Beschreibung */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2126,14 +1982,14 @@ Découvrir Techgastro maintenant
           mx: "auto",
         }}
       >
-        Avec le <strong>Webshop Techgastro</strong>, tu atteins directement tes clients –  
-        sans passer par Lieferando, Wolt ou Uber Eats.  
-        Tu gardes <strong>100 % de tes revenus</strong>,  
-        tu gardes le contrôle total sur <strong>tes données, tes commandes et la relation client</strong>  
-        et tu restes indépendant.  
+        Mit dem <strong>Gastrosoft Webshop</strong> erreichst du deine Kunden direkt –  
+        ohne Lieferando, Wolt oder Uber Eats.  
+        Du behältst <strong>100 % deiner Einnahmen</strong>,  
+        hast volle Kontrolle über <strong>Daten, Bestellungen und Kundenkontakt</strong>  
+        und bleibst unabhängig.  
         <br />
         <br />
-        Ton design. Ta marque. Tes clients.
+        Dein Design. Deine Marke. Deine Kunden.
       </Typography>
 
       <Button
@@ -2152,15 +2008,15 @@ Découvrir Techgastro maintenant
           maxWidth: 280,
           mx: "auto",
         }}
-         href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20den%20Webshop%20erfahren."
         target="_blank"
       >
-        Lancer ma propre boutique en ligne
+        Jetzt eigenen Webshop starten
       </Button>
     </motion.div>
   </Container>
 
-  {/* 💻 DESKTOP reste identique en layout */}
+  {/* 💻 DESKTOP bleibt unverändert */}
   <Container
     maxWidth="lg"
     sx={{
@@ -2170,7 +2026,7 @@ Découvrir Techgastro maintenant
       gap: 10,
     }}
   >
-    {/* Image Desktop */}
+    {/* Desktop Bild */}
     <motion.div
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -2187,7 +2043,7 @@ Découvrir Techgastro maintenant
         <Box
           component="img"
           src="/webshop2.png"
-          alt="Aperçu de la boutique en ligne"
+          alt="Webshop Showcase"
           sx={{
             width: "100%",
             maxWidth: 750,
@@ -2198,7 +2054,7 @@ Découvrir Techgastro maintenant
       </Box>
     </motion.div>
 
-    {/* Texte Desktop */}
+    {/* Desktop Text */}
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -2215,7 +2071,7 @@ Découvrir Techgastro maintenant
           letterSpacing: 1.5,
         }}
       >
-        Vendre en ligne – sans commission
+        Verkaufe online – ohne Provision
       </Typography>
 
       <Typography
@@ -2228,7 +2084,7 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Ta propre boutique en ligne –<br /> moderne, indépendante & sans commission
+        Dein eigener Webshop –<br /> modern, unabhängig & provisionsfrei
       </Typography>
 
       <Typography
@@ -2240,14 +2096,14 @@ Découvrir Techgastro maintenant
           maxWidth: 550,
         }}
       >
-        Avec le <strong>Webshop Techgastro</strong>, tu atteins directement tes clients –  
-        sans passer par Lieferando, Wolt ou Uber Eats.  
-        Tu gardes <strong>100 % de tes revenus</strong>,  
-        tu gardes le contrôle total sur <strong>tes données, tes commandes et la relation client</strong>  
-        et tu restes indépendant.  
+        Mit dem <strong>Gastrosoft Webshop</strong> erreichst du deine Kunden direkt –  
+        ohne Lieferando, Wolt oder Uber Eats.  
+        Du behältst <strong>100 % deiner Einnahmen</strong>,  
+        hast volle Kontrolle über <strong>Daten, Bestellungen und Kundenkontakt</strong>  
+        und bleibst unabhängig.  
         <br />
         <br />
-        Ton design. Ta marque. Tes clients.
+        Dein Design. Deine Marke. Deine Kunden.
       </Typography>
 
       <Button
@@ -2263,15 +2119,15 @@ Découvrir Techgastro maintenant
           boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
           "&:hover": { bgcolor: "#1ebe5d", transform: "translateY(-4px)" },
         }}
-         href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20den%20Webshop%20erfahren."
         target="_blank"
       >
-        Lancer ma propre boutique en ligne
+        Jetzt eigenen Webshop starten
       </Button>
     </motion.div>
   </Container>
 
-  {/* 💫 Décor de fond */}
+  {/* 💫 Deko-Hintergrund */}
   <motion.div
     style={{
       position: "absolute",
@@ -2293,7 +2149,7 @@ Découvrir Techgastro maintenant
   id="tischreservierungen"
   sx={{
     py: { xs: 8, md: 16 },
-    // backgroundImage: "url('/table-bg.jpg')", // optionnel
+    // backgroundImage: "url('/table-bg.jpg')", // optional
     backgroundSize: "cover",
     backgroundPosition: "center",
     position: "relative",
@@ -2301,7 +2157,7 @@ Découvrir Techgastro maintenant
     color: "#0b2341",
   }}
 >
-  {/* Overlay pour la lisibilité */}
+  {/* Overlay für Lesbarkeit */}
   <Box
     sx={{
       position: "absolute",
@@ -2311,7 +2167,7 @@ Découvrir Techgastro maintenant
     }}
   />
 
-  {/* 📱 LAYOUT MOBILE */}
+  {/* 📱 MOBILE LAYOUT */}
   <Container
     maxWidth="lg"
     sx={{
@@ -2325,7 +2181,7 @@ Découvrir Techgastro maintenant
       px: 2,
     }}
   >
-    {/* Zone de texte */}
+    {/* Textbereich */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2342,7 +2198,7 @@ Découvrir Techgastro maintenant
           fontSize: "0.8rem",
         }}
       >
-        Réservation de table en ligne
+        Online-Tischreservierung
       </Typography>
 
       <Typography
@@ -2356,33 +2212,34 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Plus jamais de réservations manquées –<br /> digital, rapide et automatisé.
+        Nie wieder verpasste Reservierungen –<br /> digital, schnell und automatisch.
       </Typography>
 
-      {/* Image sous le texte */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        style={{ width: "100%", display: "flex", justifyContent: "center" }}
-      >
-        <Box
-          component="img"
-          src="/table-bg.jpg"
-          alt="Réservation de table digitale"
-          sx={{
-            width: "100%",
-            maxWidth: 320,
-            borderRadius: "20px",
-            boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
-            transform: "rotate(2deg)",
-            transition: "transform 0.5s ease",
-            mb: 4,
-            "&:hover": { transform: "rotate(0deg) scale(1.03)" },
-          }}
-        />
-      </motion.div>
+          {/* Bild unter Text */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      style={{ width: "100%", display: "flex", justifyContent: "center" }}
+    >
+    <Box
+  component="img"
+  src="/table-bg.jpg"
+  alt="Digitale Tischreservierung"
+  sx={{
+    width: "100%",
+    maxWidth: 320,
+    borderRadius: "20px",
+    boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
+    transform: "rotate(2deg)",
+    transition: "transform 0.5s ease",
+    mb: 4,                // 👉 Abstand nach unten
+    "&:hover": { transform: "rotate(0deg) scale(1.03)" },
+  }}
+/>
+
+    </motion.div>
 
       <Typography
         sx={{
@@ -2394,13 +2251,13 @@ Découvrir Techgastro maintenant
           mx: "auto",
         }}
       >
-        Avec la <strong>réservation de tables Techgastro</strong>, tes clients peuvent réserver
-        <strong> en ligne 24h/24</strong> – via ton site, la boutique en ligne ou
-        un <strong>QR-code</strong> à l’entrée.  
-        Tu reçois automatiquement une notification, et la table est immédiatement
-        bloquée dans le système.  
-        Tu gagnes du temps, tu évites les doubles réservations et tu impressionnes
-        tes clients avec un service moderne.
+        Mit <strong>Gastrosoft Tischreservierung</strong> können Gäste rund um die Uhr
+        <strong> online reservieren</strong> – ob über deine Webseite, den Webshop oder
+        einen <strong>QR-Code</strong> am Eingang.  
+        Du erhältst automatisch eine Benachrichtigung, und der Tisch wird direkt im System
+        blockiert.  
+        So sparst du Zeit, vermeidest Doppelbuchungen und begeisterst deine Gäste mit
+        modernem Service.
       </Typography>
 
       <Button
@@ -2419,15 +2276,17 @@ Découvrir Techgastro maintenant
           maxWidth: 280,
           mx: "auto",
         }}
-         href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20die%20Tischreservierung%20erfahren."
         target="_blank"
       >
-        Activer la réservation de tables
+        Jetzt Tischreservierung
       </Button>
     </motion.div>
+
+
   </Container>
 
-  {/* 💻 DESKTOP */}
+  {/* 💻 DESKTOP bleibt unverändert */}
   <Container
     maxWidth="lg"
     sx={{
@@ -2439,7 +2298,7 @@ Découvrir Techgastro maintenant
       gap: 10,
     }}
   >
-    {/* Texte à gauche */}
+    {/* Textbereich links */}
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -2456,7 +2315,7 @@ Découvrir Techgastro maintenant
           letterSpacing: 1.5,
         }}
       >
-        Réservation de table en ligne
+        Online-Tischreservierung
       </Typography>
 
       <Typography
@@ -2469,7 +2328,7 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Plus jamais de réservations manquées –<br /> digital, rapide et automatisé.
+        Nie wieder verpasste Reservierungen –<br /> digital, schnell und automatisch.
       </Typography>
 
       <Typography
@@ -2481,13 +2340,13 @@ Découvrir Techgastro maintenant
           maxWidth: 550,
         }}
       >
-        Avec la <strong>réservation de tables Techgastro</strong>, tes clients peuvent réserver
-        <strong> en ligne 24h/24</strong> – via ton site, la boutique en ligne ou
-        un <strong>QR-code</strong> à l’entrée.  
-        Tu reçois automatiquement une notification, et la table est immédiatement
-        bloquée dans le système.  
-        Tu gagnes du temps, tu évites les doubles réservations et tu impressionnes
-        tes clients avec un service moderne.
+        Mit <strong>Gastrosoft Tischreservierung</strong> können Gäste rund um die Uhr
+        <strong> online reservieren</strong> – ob über deine Webseite, den Webshop oder
+        einen <strong>QR-Code</strong> am Eingang.  
+        Du erhältst automatisch eine Benachrichtigung, und der Tisch wird direkt im System
+        blockiert.  
+        So sparst du Zeit, vermeidest Doppelbuchungen und begeisterst deine Gäste mit
+        modernem Service.
       </Typography>
 
       <Button
@@ -2503,14 +2362,14 @@ Découvrir Techgastro maintenant
           boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
           "&:hover": { bgcolor: "#1ebe5d", transform: "translateY(-4px)" },
         }}
-          href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20die%20Tischreservierung%20erfahren."
         target="_blank"
       >
-        Activer la réservation de tables
+        Jetzt Tischreservierung
       </Button>
     </motion.div>
 
-    {/* Image à droite */}
+    {/* Bild rechts */}
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2521,7 +2380,7 @@ Découvrir Techgastro maintenant
       <Box
         component="img"
         src="/table-bg.jpg"
-        alt="Réservation de table digitale"
+        alt="Digitale Tischreservierung"
         sx={{
           width: "100%",
           maxWidth: 480,
@@ -2546,7 +2405,7 @@ Découvrir Techgastro maintenant
     overflow: "hidden",
   }}
 >
-  {/* 📱 LAYOUT MOBILE */}
+  {/* 📱 MOBILE LAYOUT */}
   <Container
     maxWidth="lg"
     sx={{
@@ -2560,7 +2419,7 @@ Découvrir Techgastro maintenant
       zIndex: 2,
     }}
   >
-    {/* Texte */}
+    {/* Text */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2577,8 +2436,9 @@ Découvrir Techgastro maintenant
           fontSize: "0.8rem",
         }}
       >
-        Compatible avec tous les systèmes de caisse
+        Kompatibel mit jedem Kassensystem
       </Typography>
+       
        
       <Typography
         variant="h4"
@@ -2591,34 +2451,34 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Techgastro s’intègre parfaitement à ton système de caisse
+        Gastrosoft integriert sich nahtlos in dein Kassensystem
       </Typography>
+ 
+          {/* Bild unter Text */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      style={{ width: "100%", display: "flex", justifyContent: "center" }}
+    >
+    <Box
+  component="img"
+      src="/integration.png"
+        alt="Integration mit Kassensystemen"
+  sx={{
+    width: "100%",
+    maxWidth: 320,
+    borderRadius: "20px",
+    boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
+    transform: "rotate(2deg)",
+    transition: "transform 0.5s ease",
+    mb: 4,                // 👉 Abstand nach unten
+    "&:hover": { transform: "rotate(0deg) scale(1.03)" },
+  }}
+/>
 
-      {/* Image sous le texte */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        style={{ width: "100%", display: "flex", justifyContent: "center" }}
-      >
-        <Box
-          component="img"
-          src="/integration.png"
-          alt="Intégration avec les systèmes de caisse"
-          sx={{
-            width: "100%",
-            maxWidth: 320,
-            borderRadius: "20px",
-            boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
-            transform: "rotate(2deg)",
-            transition: "transform 0.5s ease",
-            mb: 4,
-            "&:hover": { transform: "rotate(0deg) scale(1.03)" },
-          }}
-        />
-      </motion.div>
-
+    </motion.div>
       <Typography
         sx={{
           fontSize: "0.95rem",
@@ -2629,13 +2489,13 @@ Découvrir Techgastro maintenant
           mx: "auto",
         }}
       >
-        Que tu utilises <strong>SumUp, Lightspeed, Vectron, Orderbird</strong> ou un autre
-        système de caisse – <strong>Techgastro</strong> s’intègre de manière fluide.  
-        Toutes les commandes issues du QR-ordering ou du Webshop sont transférées
-        directement dans le système de caisse et gérées de façon centralisée.  
+        Egal ob du <strong>SumUp, Lightspeed, Vectron, Orderbird</strong> oder ein anderes
+        Kassensystem nutzt – <strong>Gastrosoft</strong> fügt sich nahtlos ein.  
+        Alle Bestellungen aus dem QR-Ordering oder Webshop werden direkt ins Kassensystem
+        übertragen und zentral verwaltet.  
         <br /><br />
-        Ainsi, tu as <strong>toutes les commandes, les paiements et les rapports</strong> au même endroit –  
-        sans double saisie, sans erreurs ni ruptures de média.
+        So hast du <strong>alle Bestellungen, Zahlungen und Reports</strong> an einem Ort –  
+        ohne doppelte Eingaben, Fehler oder Medienbrüche.
       </Typography>
 
       <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap", justifyContent: "center", mb: 4 }}>
@@ -2673,15 +2533,15 @@ Découvrir Techgastro maintenant
           maxWidth: 280,
           mx: "auto",
         }}
-         href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20die%20Integration%20mit%20meinem%20Kassensystem%20erfahren."
         target="_blank"
       >
-        Demander l’intégration maintenant
+        Jetzt Integration anfragen
       </Button>
     </motion.div>
   </Container>
 
-  {/* 💻 DESKTOP */}
+  {/* 💻 DESKTOP bleibt unverändert */}
   <Container
     maxWidth="lg"
     sx={{
@@ -2691,7 +2551,7 @@ Découvrir Techgastro maintenant
       gap: 10,
     }}
   >
-    {/* Image à gauche */}
+    {/* Bild links */}
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -2702,7 +2562,7 @@ Découvrir Techgastro maintenant
       <Box
         component="img"
         src="/integration.png"
-        alt="Intégration avec les systèmes de caisse"
+        alt="Integration mit Kassensystemen"
         sx={{
           width: "100%",
           maxWidth: 500,
@@ -2715,7 +2575,7 @@ Découvrir Techgastro maintenant
       />
     </motion.div>
 
-    {/* Texte à droite */}
+    {/* Text rechts */}
     <motion.div
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -2732,7 +2592,7 @@ Découvrir Techgastro maintenant
           letterSpacing: 1.5,
         }}
       >
-        Compatible avec tous les systèmes de caisse
+        Kompatibel mit jedem Kassensystem
       </Typography>
 
       <Typography
@@ -2745,7 +2605,7 @@ Découvrir Techgastro maintenant
           color: "#0b2341",
         }}
       >
-        Techgastro s’intègre parfaitement à ton système de caisse
+        Gastrosoft integriert sich nahtlos in dein Kassensystem
       </Typography>
 
       <Typography
@@ -2757,13 +2617,13 @@ Découvrir Techgastro maintenant
           maxWidth: 550,
         }}
       >
-        Que tu utilises <strong>SumUp, Lightspeed, Vectron, Orderbird</strong> ou un autre
-        système de caisse – <strong>Techgastro</strong> s’intègre de manière fluide.  
-        Toutes les commandes issues du QR-ordering ou du Webshop sont transférées
-        directement dans le système de caisse et gérées de façon centralisée.  
+        Egal ob du <strong>SumUp, Lightspeed, Vectron, Orderbird</strong> oder ein anderes
+        Kassensystem nutzt – <strong>Gastrosoft</strong> fügt sich nahtlos ein.  
+        Alle Bestellungen aus dem QR-Ordering oder Webshop werden direkt ins Kassensystem
+        übertragen und zentral verwaltet.  
         <br /><br />
-        Ainsi, tu as <strong>toutes les commandes, les paiements et les rapports</strong> au même endroit –  
-        sans double saisie, sans erreurs ni ruptures de média.
+        So hast du <strong>alle Bestellungen, Zahlungen und Reports</strong> an einem Ort –  
+        ohne doppelte Eingaben, Fehler oder Medienbrüche.
       </Typography>
 
       <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
@@ -2799,15 +2659,14 @@ Découvrir Techgastro maintenant
           boxShadow: "0 8px 25px rgba(37,211,102,0.3)",
           "&:hover": { bgcolor: "#1ebe5d", transform: "translateY(-4px)" },
         }}
-         href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!%20Ich%20möchte%20mehr%20über%20die%20Integration%20mit%20meinem%20Kassensystem%20erfahren."
         target="_blank"
       >
-        Demander l’intégration maintenant
+        Jetzt Integration anfragen
       </Button>
     </motion.div>
   </Container>
 </Box>
-
 
 <Box
   id="payment"
@@ -2836,7 +2695,7 @@ Découvrir Techgastro maintenant
         color: "#1d3a2d",
       }}
     >
-      Moyens de paiement flexibles <br /> pour tes clients
+      Flexible Bezahlmöglichkeiten <br /> für deine Gäste
     </Typography>
 
     <Typography
@@ -2848,12 +2707,12 @@ Découvrir Techgastro maintenant
         maxWidth: { xs: 360, md: 600 },
       }}
     >
-      Laisse tes clients payer directement à table ou en ligne – rapidement,
-      en toute sécurité et avec une gestion centralisée. <br />
-      Accepte tous les moyens de paiement modernes, sans effort supplémentaire.
+      Lass deine Gäste direkt am Tisch oder online bezahlen – schnell,
+      sicher und zentral verwaltet. <br />
+      Akzeptiere alle modernen Zahlungsmethoden, ganz ohne Aufwand.
     </Typography>
 
-    {/* 💳 Ligne de logos */}
+    {/* 💳 Logo-Reihe */}
     <Box
       sx={{
         display: "flex",
@@ -2914,8 +2773,7 @@ Découvrir Techgastro maintenant
   </Container>
 </Box>
 
-
-{/* 💫 Barre de services défilante – optimisée pour mobile */}
+{/* 💫 Laufende Service-Leiste – Mobile optimiert */}
 <Box
   sx={{
     overflow: "hidden",
@@ -2932,7 +2790,7 @@ Découvrir Techgastro maintenant
     },
   }}
 >
-  {/* Effets de brillance latéraux */}
+  {/* Seitliche Glanzeffekte */}
   <Box
     sx={{
       position: "absolute",
@@ -2962,25 +2820,25 @@ Découvrir Techgastro maintenant
         sx={{
           display: "inline-flex",
           alignItems: "center",
-          gap: { xs: 3, md: 8 },
+          gap: { xs: 3, md: 8 }, // enger auf Mobile
           px: { xs: 4, md: 6 },
         }}
       >
         {[
-          { icon: "🍔", label: "Kiosque self-ordering" },
-          { icon: "🧾", label: "Précommande" },
-          { icon: "🚗", label: "Livraison" },
-          { icon: "🍽️", label: "Réservation de table" },
-          { icon: "📦", label: "Retrait sur place" },
-          { icon: "🎫", label: "Affichage des numéros d’attente" },
-          { icon: "🛒", label: "Boutique en ligne" },
+          { icon: "🍔", label: "Self-Ordering-Kiosk" },
+          { icon: "🧾", label: "Vorbestellung" },
+          { icon: "🚗", label: "Lieferung" },
+          { icon: "🍽️", label: "Tischreservierung" },
+          { icon: "📦", label: "Selbstabholung" },
+          { icon: "🎫", label: "Wartenummer-Anzeige" },
+          { icon: "🛒", label: "Webshop" },
         ].map((item, i) => (
           <Box
             key={i}
             sx={{
               display: "flex",
               alignItems: "center",
-              gap: 1.5,
+              gap: 1.5, // etwas enger auf Mobile
               color: "#0b2341",
               fontWeight: 600,
               fontSize: { xs: "1.3rem", md: "1.9rem" },
@@ -3030,419 +2888,420 @@ Découvrir Techgastro maintenant
 </Box>
 
    
-{/* 🔄 Impact */}
-<Box
-  id="impact"
-  sx={{
-    py: { xs: 10, md: 14 },
-    background: "linear-gradient(180deg, #ffffff 0%, #f1f8f4 100%)",
-    color: "#0b2341",
-    overflow: "hidden",
-  }}
->
-  <Container maxWidth="lg">
-    {/* 🧭 Titre & texte avec animation */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <Typography
-        variant="overline"
-        sx={{
-          display: "block",
-          color: "#25D366",
-          fontWeight: 600,
-          textTransform: "uppercase",
-          letterSpacing: 1,
-          textAlign: "center",
-          mb: 2,
-        }}
-      >
-        Notre impact dans la restauration
-      </Typography>
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <Typography
-        variant="h3"
-        align="center"
-        sx={{
-          fontWeight: 800,
-          mb: 4,
-          fontSize: { xs: "2rem", md: "2.8rem" },
-          color: "#0b2341",
-        }}
-      >
-        Plus de chiffre d’affaires. Moins de stress. Des clients plus satisfaits.
-      </Typography>
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.3, delay: 0.4, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <Typography
-        align="center"
-        sx={{
-          mb: 8,
-          color: "rgba(0,0,0,0.7)",
-          maxWidth: 700,
-          mx: "auto",
-          fontSize: "1.1rem",
-          lineHeight: 1.7,
-        }}
-      >
-        Avec <strong>Techgastro Self-Ordering</strong>, tu augmentes ton chiffre d’affaires,
-        réduis ta charge de travail et rends tes clients plus heureux – sans matériel coûteux
-        ni systèmes compliqués. À table, au kiosque ou via QR-code sur le téléphone :
-        notre solution s’adapte à ton établissement – et non l’inverse.
-      </Typography>
-    </motion.div>
-
-    {/* 🌍 Avantages / indicateurs avec animation */}
-    <Box
+  {/* 🔄 Wirkung */}
+   <Box
+      id="impact"
       sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          xs: "repeat(2, 1fr)",
-          md: "repeat(3, 1fr)",
-        },
-        gap: 4,
-        justifyItems: "center",
-        alignItems: "stretch",
+        py: { xs: 10, md: 14 },
+        background: "linear-gradient(180deg, #ffffff 0%, #f1f8f4 100%)",
+        color: "#0b2341",
+        overflow: "hidden",
       }}
     >
-      {items.map((item, i) => (
+      <Container maxWidth="lg">
+        {/* 🧭 Titel & Text mit Motion */}
         <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.2,
-            delay: i * 0.25,
-            ease: "easeOut",
-          }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
+          <Typography
+            variant="overline"
+            sx={{
+              display: "block",
+              color: "#25D366",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              textAlign: "center",
+              mb: 2,
+            }}
+          >
+            Unsere Wirkung in der Gastronomie
+          </Typography>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <Typography
+            variant="h3"
+            align="center"
+            sx={{
+              fontWeight: 800,
+              mb: 4,
+              fontSize: { xs: "2rem", md: "2.8rem" },
+              color: "#0b2341",
+            }}
+          >
+            Mehr Umsatz. Weniger Stress. Zufriedenere Gäste.
+          </Typography>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.3, delay: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <Typography
+            align="center"
+            sx={{
+              mb: 8,
+              color: "rgba(0,0,0,0.7)",
+              maxWidth: 700,
+              mx: "auto",
+              fontSize: "1.1rem",
+              lineHeight: 1.7,
+            }}
+          >
+            Mit <strong>Gastrosoft Self-Ordering</strong> bekommst du mehr Umsatz, 
+            weniger Aufwand und glückliche Gäste – ganz ohne teure Hardware oder 
+            komplizierte Systeme. Ob am Tisch, am Kiosk oder per QR-Code am Handy: 
+            Unsere Lösung passt sich deinem Betrieb an – nicht umgekehrt.
+          </Typography>
+        </motion.div>
+
+        {/* 🌍 Vorteile / Kennzahlen mit Animation */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+            },
+            gap: 4,
+            justifyItems: "center",
+            alignItems: "stretch",
+          }}
+        >
+          {items.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 1.2,
+                delay: i * 0.25,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <Box
+                sx={{
+                  textAlign: "center",
+                  bgcolor: "rgba(37,211,102,0.05)",
+                  borderRadius: "20px",
+                  p: { xs: 3, md: 4 },
+                  width: "100%",
+                  maxWidth: 320,
+                  minHeight: 240,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  transition: "transform 0.6s ease, box-shadow 0.6s ease",
+                  boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
+                  "&:hover": {
+                    transform: "translateY(-8px)",
+                    boxShadow: "0 12px 35px rgba(37,211,102,0.25)",
+                    bgcolor: "rgba(37,211,102,0.12)",
+                  },
+                }}
+              >
+                <Typography sx={{ fontSize: "2.4rem", mb: 1 }}>
+                  {item.icon}
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 800,
+                    color: "#25D366",
+                    mb: 1,
+                    fontSize: { xs: "2rem", md: "2.6rem" },
+                  }}
+                >
+                  {item.number}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "rgba(0,0,0,0.75)",
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    maxWidth: 250,
+                  }}
+                >
+                  {item.text}
+                </Typography>
+              </Box>
+            </motion.div>
+          ))}
+        </Box>
+
+        {/* ✅ Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          viewport={{ once: true }}
+        >
+          <Box sx={{ textAlign: "center", mt: 10 }}>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: "#25D366",
+                color: "white",
+                px: { xs: 5, md: 8 },
+                py: { xs: 1.6, md: 2 },
+                fontWeight: 700,
+                borderRadius: "50px",
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                textTransform: "none",
+                boxShadow: "0 10px 25px rgba(37,211,102,0.3)",
+                transition: "all 0.4s ease",
+                "&:hover": {
+                  bgcolor: "#1ebe5d",
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 15px 35px rgba(37,211,102,0.45)",
+                },
+              }}
+              href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
+              target="_blank"
+            >
+              Jetzt Vorteile entdecken
+            </Button>
+          </Box>
+        </motion.div>
+      </Container>
+    </Box>
+
+
+      
+
+      {/* 💎 SECTION — Warum Gastrosoft */}
+      <Box
+        id="ueberuns"
+        sx={{
+          py: { xs: 10, md: 16 },
+          px: { xs: 2, sm: 4, md: 6, lg: 10 },
+          background: "linear-gradient(180deg, #e9f7f1 0%, #ffffff 100%)",
+        }}
+      >
+        <Container maxWidth="xl">
+          {/* 🩺 Haupttitel */}
           <Box
             sx={{
               textAlign: "center",
-              bgcolor: "rgba(37,211,102,0.05)",
-              borderRadius: "20px",
-              p: { xs: 3, md: 4 },
-              width: "100%",
-              maxWidth: 320,
-              minHeight: 240,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              transition: "transform 0.6s ease, box-shadow 0.6s ease",
-              boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-              "&:hover": {
-                transform: "translateY(-8px)",
-                boxShadow: "0 12px 35px rgba(37,211,102,0.25)",
-                bgcolor: "rgba(37,211,102,0.12)",
-              },
+              mb: { xs: 8, md: 12 },
+              maxWidth: 900,
+              mx: "auto",
             }}
           >
-            <Typography sx={{ fontSize: "2.4rem", mb: 1 }}>
-              {item.icon}
+            <Typography
+              variant="overline"
+              sx={{
+                color: "#25D366",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+                mb: 1.5,
+                display: "block",
+              }}
+            >
+              Unsere Erfahrung macht den Unterschied
             </Typography>
+
             <Typography
               variant="h3"
               sx={{
                 fontWeight: 800,
-                color: "#25D366",
-                mb: 1,
-                fontSize: { xs: "2rem", md: "2.6rem" },
+                color: "#0d2b5c",
+                mb: 2,
+                fontSize: { xs: "2rem", md: "2.8rem", lg: "3rem" },
+                lineHeight: 1.3,
               }}
             >
-              {item.number}
+              Warum Profis auf Gastrosoft setzen
             </Typography>
+
             <Typography
               sx={{
-                color: "rgba(0,0,0,0.75)",
-                fontSize: "1rem",
-                fontWeight: 500,
-                lineHeight: 1.6,
-                maxWidth: 250,
+                color: "text.secondary",
+                fontSize: { xs: "1rem", md: "1.15rem" },
+                lineHeight: 1.8,
+                maxWidth: 750,
+                mx: "auto",
               }}
             >
-              {item.text}
+              Entwickelt von Ingenieur:innen und Gastro-Expert:innen verbindet{" "}
+              <strong>Gastrosoft</strong> technisches Know-how mit
+              Branchenerfahrung. Unsere Cloud-Lösung übernimmt alles – von
+              kontinuierlichem Support bis zu automatischen Updates.
             </Typography>
           </Box>
-        </motion.div>
-      ))}
-    </Box>
 
-    {/* ✅ Call to Action */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 1.2 }}
-      viewport={{ once: true }}
-    >
-      <Box sx={{ textAlign: "center", mt: 10 }}>
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: "#25D366",
-            color: "white",
-            px: { xs: 5, md: 8 },
-            py: { xs: 1.6, md: 2 },
-            fontWeight: 700,
-            borderRadius: "50px",
-            fontSize: { xs: "1rem", md: "1.1rem" },
-            textTransform: "none",
-            boxShadow: "0 10px 25px rgba(37,211,102,0.3)",
-            transition: "all 0.4s ease",
-            "&:hover": {
-              bgcolor: "#1ebe5d",
-              transform: "translateY(-4px)",
-              boxShadow: "0 15px 35px rgba(37,211,102,0.45)",
-            },
-          }}
-           href="https://wa.me/491622982160?text=Bonjour!"
-          target="_blank"
-        >
-          Découvrir tous les avantages
-        </Button>
-      </Box>
-    </motion.div>
-  </Container>
-</Box>
-
-
-{/* 💎 SECTION — Pourquoi Techgastro */}
-<Box
-  id="ueberuns"
-  sx={{
-    py: { xs: 10, md: 16 },
-    px: { xs: 2, sm: 4, md: 6, lg: 10 },
-    background: "linear-gradient(180deg, #e9f7f1 0%, #ffffff 100%)",
-  }}
->
-  <Container maxWidth="xl">
-    {/* 🩺 Titre principal */}
-    <Box
-      sx={{
-        textAlign: "center",
-        mb: { xs: 8, md: 12 },
-        maxWidth: 900,
-        mx: "auto",
-      }}
-    >
-      <Typography
-        variant="overline"
-        sx={{
-          color: "#25D366",
-          fontWeight: 600,
-          textTransform: "uppercase",
-          letterSpacing: 1,
-          mb: 1.5,
-          display: "block",
-        }}
-      >
-        Notre expérience fait la différence
-      </Typography>
-
-      <Typography
-        variant="h3"
-        sx={{
-          fontWeight: 800,
-          color: "#0d2b5c",
-          mb: 2,
-          fontSize: { xs: "2rem", md: "2.8rem", lg: "3rem" },
-          lineHeight: 1.3,
-        }}
-      >
-        Pourquoi les professionnels choisissent Techgastro
-      </Typography>
-
-      <Typography
-        sx={{
-          color: "text.secondary",
-          fontSize: { xs: "1rem", md: "1.15rem" },
-          lineHeight: 1.8,
-          maxWidth: 750,
-          mx: "auto",
-        }}
-      >
-        Développé par des <strong>ingénieur·e·s</strong> et des{" "}
-        <strong>expert·e·s de la restauration</strong>,{" "}
-        <strong>Techgastro</strong> allie expertise technique et connaissance du terrain.
-        Notre solution cloud prend tout en charge – du support continu aux mises à jour automatiques.
-      </Typography>
-    </Box>
-
-    {/* 🌿 Contenu */}
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: { xs: 6, md: 10 },
-        maxWidth: "1400px",
-        mx: "auto",
-      }}
-    >
-      {/* 🧠 Texte à gauche */}
-      <Box
-        sx={{
-          flex: { xs: "1 1 100%", md: "1 1 50%" },
-          display: "flex",
-          flexDirection: "column",
-          gap: 3,
-        }}
-      >
-        {[
-          {
-            icon: "☁️",
-            title: "Hébergement cloud sécurisé",
-            desc: "Vos données sont dans le cloud, disponibles à tout moment – avec sauvegardes automatiques et chiffrement complet.",
-          },
-          {
-            icon: "🔄",
-            title: "Mises à jour automatiques",
-            desc: "Les nouvelles fonctionnalités sont déployées sans interruption de service.",
-          },
-          {
-            icon: "🧑‍💻",
-            title: "Support dédié",
-            desc: "Notre équipe vous accompagne au quotidien – avec un contrat de support incluant conseil et accompagnement.",
-          },
-          {
-            icon: "💬",
-            title: "Automatisation intelligente",
-            desc: "Commandes & paiements fonctionnent 24h/24 via WhatsApp et les systèmes de kiosque.",
-          },
-          {
-            icon: "🔒",
-            title: "Protection des données & conformité",
-            desc: "Conforme aux exigences légales, y compris TSE pour les caisses en Allemagne.",
-          },
-        ].map((item, i) => (
+          {/* 🌿 Inhalte */}
           <Box
-            key={i}
             sx={{
               display: "flex",
-              alignItems: "flex-start",
-              gap: 2,
-              p: 2,
-              borderRadius: 3,
-              bgcolor: "rgba(255,255,255,0.6)",
-              backdropFilter: "blur(4px)",
-              transition: "background 0.3s ease, transform 0.3s ease",
-              "&:hover": {
-                bgcolor: "rgba(255,255,255,0.9)",
-                transform: "translateX(6px)",
-                boxShadow: "0 6px 20px rgba(37,211,102,0.15)",
-              },
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: { xs: 6, md: 10 },
+              maxWidth: "1400px",
+              mx: "auto",
             }}
           >
-            <Box sx={{ fontSize: "1.8rem", flexShrink: 0 }}>{item.icon}</Box>
-            <Box>
-              <Typography
-                variant="h6"
+            {/* 🧠 Text links */}
+            <Box
+              sx={{
+                flex: { xs: "1 1 100%", md: "1 1 50%" },
+                display: "flex",
+                flexDirection: "column",
+                gap: 3,
+              }}
+            >
+              {[
+                {
+                  icon: "☁️",
+                  title: "Sicheres Cloud-Hosting",
+                  desc: "Ihre Daten sind in der Cloud, jederzeit verfügbar – mit automatischen Backups und Vollverschlüsselung.",
+                },
+                {
+                  icon: "🔄",
+                  title: "Automatische Updates",
+                  desc: "Neue Funktionen werden ohne Unterbrechung eingespielt.",
+                },
+                {
+                  icon: "🧑‍💻",
+                  title: "Dedizierter Support",
+                  desc: "Unser Team begleitet Sie täglich – mit Support-Vertrag inkl. Beratung.",
+                },
+                {
+                  icon: "💬",
+                  title: "Intelligente Automatisierung",
+                  desc: "Bestellungen & Zahlungen laufen 24/7 über WhatsApp und Kiosksysteme.",
+                },
+                {
+                  icon: "🔒",
+                  title: "Datenschutz & Compliance",
+                  desc: "Rechtskonform, inkl. TSE für Kassen in Deutschland.",
+                },
+              ].map((item, i) => (
+                <Box
+                  key={i}
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 2,
+                    p: 2,
+                    borderRadius: 3,
+                    bgcolor: "rgba(255,255,255,0.6)",
+                    backdropFilter: "blur(4px)",
+                    transition: "background 0.3s ease, transform 0.3s ease",
+                    "&:hover": {
+                      bgcolor: "rgba(255,255,255,0.9)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 6px 20px rgba(37,211,102,0.15)",
+                    },
+                  }}
+                >
+                  <Box sx={{ fontSize: "1.8rem", flexShrink: 0 }}>{item.icon}</Box>
+                  <Box>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 700,
+                        color: "#0d2b5c",
+                        mb: 0.5,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: "1rem",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {item.desc}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+
+            {/* 🎥 Bild rechts */}
+            <Box
+              sx={{
+                flex: { xs: "1 1 100%", md: "1 1 50%" },
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component="img"
+                src="/cloud-support.webp"
+                alt="Gastrosoft Cloud & Support"
                 sx={{
-                  fontWeight: 700,
-                  color: "#0d2b5c",
-                  mb: 0.5,
+                  width: "100%",
+                  maxWidth: { xs: 420, md: 520, lg: 580 },
+                  borderRadius: "24px",
+                  boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
+                  objectFit: "cover",
+                  transition: "transform 0.6s ease, box-shadow 0.6s ease",
+                  animation: "float 6s ease-in-out infinite",
+                  "@keyframes float": {
+                    "0%, 100%": { transform: "translateY(0)" },
+                    "50%": { transform: "translateY(-10px)" },
+                  },
+                  "&:hover": {
+                    transform: "scale(1.03)",
+                    boxShadow: "0 25px 60px rgba(37,211,102,0.3)",
+                  },
                 }}
-              >
-                {item.title}
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  color: "text.secondary",
-                  fontSize: "1rem",
-                  lineHeight: 1.6,
-                }}
-              >
-                {item.desc}
-              </Typography>
+              />
             </Box>
           </Box>
-        ))}
+
+          {/* ✅ CTA final */}
+          <Box sx={{ textAlign: "center", mt: { xs: 10, md: 14 } }}>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: "#25D366",
+                color: "white",
+                px: { xs: 6, md: 8 },
+                py: { xs: 1.6, md: 2 },
+                fontWeight: 700,
+                borderRadius: "50px",
+                fontSize: { xs: "1rem", md: "1.15rem" },
+                textTransform: "none",
+                boxShadow: "0 10px 25px rgba(37,211,102,0.3)",
+                "&:hover": {
+                  bgcolor: "#1ebe5d",
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 15px 35px rgba(37,211,102,0.45)",
+                },
+              }}
+              href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
+              target="_blank"
+            >
+              Noch heute mit Gastrosoft starten
+            </Button>
+          </Box>
+        </Container>
       </Box>
 
-      {/* 🎥 Image à droite */}
-      <Box
-        sx={{
-          flex: { xs: "1 1 100%", md: "1 1 50%" },
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Box
-          component="img"
-          src="/cloud-support.webp"
-          alt="Gastrosoft Cloud & Support"
-          sx={{
-            width: "100%",
-            maxWidth: { xs: 420, md: 520, lg: 580 },
-            borderRadius: "24px",
-            boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
-            objectFit: "cover",
-            transition: "transform 0.6s ease, box-shadow 0.6s ease",
-            animation: "float 6s ease-in-out infinite",
-            "@keyframes float": {
-              "0%, 100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-10px)" },
-            },
-            "&:hover": {
-              transform: "scale(1.03)",
-              boxShadow: "0 25px 60px rgba(37,211,102,0.3)",
-            },
-          }}
-        />
-      </Box>
-    </Box>
-
-    {/* ✅ CTA final */}
-    <Box sx={{ textAlign: "center", mt: { xs: 10, md: 14 } }}>
-      <Button
-        variant="contained"
-        sx={{
-          bgcolor: "#25D366",
-          color: "white",
-          px: { xs: 6, md: 8 },
-          py: { xs: 1.6, md: 2 },
-          fontWeight: 700,
-          borderRadius: "50px",
-          fontSize: { xs: "1rem", md: "1.15rem" },
-          textTransform: "none",
-          boxShadow: "0 10px 25px rgba(37,211,102,0.3)",
-          "&:hover": {
-            bgcolor: "#1ebe5d",
-            transform: "translateY(-4px)",
-            boxShadow: "0 15px 35px rgba(37,211,102,0.45)",
-          },
-        }}
-          href="https://wa.me/491622982160?text=Bonjour!"
-        target="_blank"
-      >
-        Commencer avec Techgastro dès aujourd’hui
-      </Button>
-    </Box>
-  </Container>
-</Box>
-
-
-{/* 🌱 IMPACT / IMPACT */}
+   {/* 🌱 IMPACT / WIRKUNG */}
 <Box
   id="impact"
   sx={{
@@ -3452,7 +3311,7 @@ Découvrir Techgastro maintenant
   }}
 >
   <Container maxWidth="lg">
-    {/* 🩺 Titre principal */}
+    {/* 🩺 Haupttitel */}
     <Typography
       variant="overline"
       sx={{
@@ -3465,7 +3324,7 @@ Découvrir Techgastro maintenant
         mb: 2,
       }}
     >
-      Notre présence & nos résultats
+      Unsere Präsenz & Ergebnisse
     </Typography>
 
     <Typography
@@ -3478,7 +3337,7 @@ Découvrir Techgastro maintenant
         color: "#0b2341",
       }}
     >
-      Techgastro digitalise les établissements de restauration
+      Gastrosoft digitalisiert Gastronomie-Betriebe
     </Typography>
 
     <Typography
@@ -3492,13 +3351,13 @@ Découvrir Techgastro maintenant
         lineHeight: 1.7,
       }}
     >
-      Notre solution cloud accompagne les restaurants en{" "}
-      <strong>Allemagne</strong> et dans la <strong>région DACH</strong>{" "}
-      dans la digitalisation de leur quotidien – pour plus d’efficacité,
-      de transparence et des processus modernes au service.
+      Unsere Cloud-Lösung unterstützt Restaurants in{" "}
+      <strong>Deutschland</strong> und der <strong>DACH-Region</strong>  
+      bei der Digitalisierung des Alltags – für mehr Effizienz, Transparenz  
+      und einen modernen Serviceablauf.
     </Typography>
 
-    {/* 🌍 Statistiques */}
+    {/* 🌍 Statistiken */}
     <Box
       sx={{
         display: "grid",
@@ -3512,37 +3371,12 @@ Découvrir Techgastro maintenant
       }}
     >
       {[
-        { number: "2", suffix: "pays", text: "Région DACH", icon: "🌍" },
-        {
-          number: "10+",
-          suffix: "sites",
-          text: "premiers partenaires de restauration",
-          icon: "🏪",
-        },
-        {
-          number: "2k+",
-          suffix: "commandes",
-          text: "traitées chaque mois",
-          icon: "🧾",
-        },
-        {
-          number: "+10%",
-          suffix: "",
-          text: "de gain de temps au service",
-          icon: "⏱️",
-        },
-        {
-          number: "+15%",
-          suffix: "",
-          text: "de gain d’efficacité opérationnelle",
-          icon: "⚙️",
-        },
-        {
-          number: "−20%",
-          suffix: "",
-          text: "d’erreurs de saisie en moins",
-          icon: "📉",
-        },
+        { number: "2", suffix: "Länder", text: "DACH-Region", icon: "🌍" },
+        { number: "10+", suffix: "Standorte", text: "erste Gastronomie-Partner", icon: "🏪" },
+        { number: "2k+", suffix: "Bestellungen", text: "monatlich verarbeitet", icon: "🧾" },
+        { number: "+10%", suffix: "", text: "Zeitersparnis im Service", icon: "⏱️" },
+        { number: "+15%", suffix: "", text: "höhere Prozesseffizienz", icon: "⚙️" },
+        { number: "−20%", suffix: "", text: "weniger Fehlbuchungen", icon: "📉" },
       ].map((item, i) => (
         <Box
           key={i}
@@ -3626,15 +3460,14 @@ Découvrir Techgastro maintenant
             boxShadow: "0 15px 35px rgba(37,211,102,0.45)",
           },
         }}
-          href="https://wa.me/491622982160?text=Bonjour!"
+        href="https://wa.me/212600000000?text=Hallo%20Gastrosoft!"
         target="_blank"
       >
-        Découvrir notre impact
+        Unsere Wirkung entdecken
       </Button>
     </Box>
   </Container>
 </Box>
-
 {/* 💚 FOOTER — heller, moderner Stil */}
 <Box
   id="nav"
@@ -3690,13 +3523,13 @@ Découvrir Techgastro maintenant
         <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
           <Box
             component="img"
-            src="/logoGastroTransparent.png"
+            src="/logo.png"
             alt="Gastrosoft Logo"
             sx={{ width: 150, mb: 2 }}
           />
           <Typography sx={{ opacity: 0.85 }}>
-           Votre plateforme intelligente pour une restauration digitalisée – 
-           conçue pour simplifier votre quotidien.
+            Ihre intelligente Plattform für die digitale Gastronomie –  
+            entwickelt, um Ihren Alltag zu vereinfachen.
           </Typography>
         </Box>
       </Grid>
@@ -3722,7 +3555,7 @@ Découvrir Techgastro maintenant
             textAlign: { xs: "center", md: "left" },
           }}
         >
-          {["À propos de nous", "Nous contacter", "Services", "Partenaires", "Actualités"].map(
+          {["Über uns", "Kontakt aufnehmen", "Leistungen", "Partner", "Neuigkeiten"].map(
             (link, i) => (
               <Typography
                 key={i}
@@ -3750,11 +3583,11 @@ Découvrir Techgastro maintenant
             textAlign: { xs: "center", md: "left" },
           }}
         >
-          Contact
+          Kontakt
         </Typography>
         <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
           <Typography sx={{ mb: 1 }}>📞 (+49) 1622982162</Typography>
-          <Typography sx={{ mb: 1 }}>✉️ kontakt@Techgastro.de</Typography>
+          <Typography sx={{ mb: 1 }}>✉️ kontakt@gastrosoft.de</Typography>
         </Box>
       </Grid>
     </Grid>
@@ -3768,8 +3601,7 @@ Découvrir Techgastro maintenant
       align="center"
       sx={{ opacity: 0.8, color: "rgba(0,0,0,0.7)" }}
     >
-      © {new Date().getFullYear()} Techgastro — Tous droits réservés.
-
+      © {new Date().getFullYear()} Gastrosoft — Alle Rechte vorbehalten.
     </Typography>
   </Container>
 
@@ -3905,9 +3737,64 @@ Découvrir Techgastro maintenant
             gap: 2,
           }}
         >
- 
+          <Zoom in={open}>
+            <Tooltip title="Instagram" placement="top">
+              <Fab
+                size="medium"
+                sx={{
+                  bgcolor: "white",
+                  border: "2px solid #C99846",
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.2)",
+                  "&:hover": {
+                    transform: "scale(1.15)",
+                    boxShadow: "0 10px 25px rgba(201,152,70,0.5)",
+                  },
+                  transition: "all 0.3s ease",
+                }}
+                href="https://www.instagram.com/marrakesch_restaurant/"
+                target="_blank"
+              >
+                <Box
+                  component="img"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                  alt="Instagram"
+                  sx={{ width: 30, height: 30 }}
+                />
+              </Fab>
+            </Tooltip>
+          </Zoom>
 
- 
+          <Zoom in={open}>
+            <Tooltip title="TikTok" placement="top">
+              <Fab
+                size="medium"
+                sx={{
+                  bgcolor: "white",
+                  border: "2px solid #C99846",
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.2)",
+                  "&:hover": {
+                    transform: "scale(1.15)",
+                    boxShadow: "0 10px 25px rgba(201,152,70,0.5)",
+                  },
+                  transition: "all 0.3s ease",
+                }}
+                href="https://www.tiktok.com/discover/marrakesch-restaurant-dortmund"
+                target="_blank"
+              >
+                <Box
+                  component="img"
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+                  alt="TikTok"
+                  sx={{
+                    width: 28,
+                    height: 28,
+                    filter:
+                      "invert(12%) sepia(92%) saturate(7481%) hue-rotate(340deg) brightness(90%) contrast(107%)",
+                  }}
+                />
+              </Fab>
+            </Tooltip>
+          </Zoom>
 
           <Zoom in={open}>
             <Tooltip title="WhatsApp" placement="top">
@@ -3920,7 +3807,7 @@ Découvrir Techgastro maintenant
                   "&:hover": { bgcolor: "#1ebe5d", transform: "scale(1.15)" },
                   transition: "all 0.3s ease",
                 }}
-                href="https://wa.me/491622982162?text=Bonjour!"
+                href="https://wa.me/49123456789?text=Hallo%20Restaurant%20Marrakech!"
                 target="_blank"
               >
                 <WhatsAppIcon sx={{ fontSize: 28 }} />

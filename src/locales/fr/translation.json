@@ -1,0 +1,32 @@
+{
+  "menu": {
+    "howItWorks": "Comment ça marche",
+    "solutions": "Nos solutions",
+    "prices": "Tarifs",
+    "about": "À propos de nous"
+  },
+  "hero": {
+    "tag": "Idéal pour les bars de plage",
+    "title": "Bye bye le manque de serveurs !",
+    "subtitle": "Offrez à vos clients la possibilité de commander et de payer en ligne, allégez votre équipe et profitez de plus de commandes et de clients satisfaits.",
+    "cta": "Commencer maintenant"
+  },
+  "buttons": {
+    "test": "Essai gratuit",
+    "skipVideo": "Passer la vidéo",
+    "closeMenu": "Fermer le menu"
+  },
+  "impact": {
+    "title": "Notre impact dans la restauration",
+    "subtitle": "Plus de ventes. Moins de stress. Des clients plus heureux.",
+    "cta": "Découvrir les avantages"
+  },
+  "contact": {
+    "title": "Contact",
+    "phone": "Téléphone",
+    "email": "Email"
+  },
+  "footer": {
+    "rights": "Tous droits réservés."
+  }
+}
