@@ -3920,7 +3920,7 @@ Découvrir Techgastro maintenant
                   "&:hover": { bgcolor: "#1ebe5d", transform: "scale(1.15)" },
                   transition: "all 0.3s ease",
                 }}
-                href="https://wa.me/491622982162?text=Bonjour!"
+                href="https://wa.me/491622982160?text=Bonjour!"
                 target="_blank"
               >
                 <WhatsAppIcon sx={{ fontSize: 28 }} />
