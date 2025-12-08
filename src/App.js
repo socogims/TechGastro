@@ -951,7 +951,7 @@ const fadeInUp = keyframes`
       />
 
   {/* Content */}
-    <Container
+   <Container
   maxWidth="lg"
   sx={{
     position: "relative",
@@ -963,58 +963,57 @@ const fadeInUp = keyframes`
     alignItems: { xs: "center", md: "flex-start" },
     textAlign: { xs: "center", md: "left" },
     color: "white",
-    px: { xs: 3, md: 8 },
+    px: { xs: 2.5, md: 8 },
   }}
 >
-
   {/* Badge oben */}
-<Box
-  sx={{
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 1,
-    mb: 2,
-    px: 1.8,
-    py: 0.7,
-    borderRadius: "999px",
-    backgroundColor: "rgba(37,211,102,0.18)",  // glänzendes Grün
-    backdropFilter: "blur(4px)",
-    border: "1px solid rgba(37,211,102,0.4)",  // leichter Glow
-  }}
->
   <Box
     sx={{
-      width: 8,
-      height: 8,
-      borderRadius: "50%",
-      bgcolor: "#25D366",
-    }}
-  />
-
-  <Typography
-    variant="overline"
-    sx={{
-      color: "#25D366",
-      fontWeight: 700,
-      letterSpacing: 1.8,
-      textTransform: "uppercase",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 1,
+      mb: { xs: 1.5, md: 2 },
+      px: { xs: 1.5, md: 1.8 },
+      py: { xs: 0.5, md: 0.7 },
+      borderRadius: "999px",
+      backgroundColor: "rgba(37,211,102,0.18)",
+      backdropFilter: "blur(4px)",
+      border: "1px solid rgba(37,211,102,0.4)",
     }}
   >
-    Plateforme complète pour restaurants & cafés
-  </Typography>
-</Box>
+    <Box
+      sx={{
+        width: 8,
+        height: 8,
+        borderRadius: "50%",
+        bgcolor: "#25D366",
+      }}
+    />
 
+    <Typography
+      variant="overline"
+      sx={{
+        color: "#25D366",
+        fontWeight: 700,
+        letterSpacing: { xs: 1.2, md: 1.8 },
+        textTransform: "uppercase",
+        fontSize: { xs: "0.65rem", md: "0.8rem" },
+      }}
+    >
+      Plateforme complète pour restaurants & cafés
+    </Typography>
+  </Box>
 
   {/* Haupttitel */}
   <Typography
     variant="h2"
     sx={{
       fontWeight: 900,
-      fontSize: { xs: "2.8rem", md: "4.2rem" },
-      lineHeight: 1.1,
-      mb: 3,
+      fontSize: { xs: "2.1rem", sm: "2.4rem", md: "4.2rem" },
+      lineHeight: { xs: 1.2, md: 1.1 },
+      mb: { xs: 2, md: 3 },
       textShadow: "3px 3px 12px rgba(0,0,0,0.6)",
-      maxWidth: 800,
+      maxWidth: { xs: "100%", md: 800 },
     }}
   >
     Une plateforme unique.  
@@ -1026,9 +1025,9 @@ const fadeInUp = keyframes`
   <Typography
     variant="body1"
     sx={{
-      fontSize: { xs: "1.15rem", md: "1.35rem" },
-      maxWidth: 650,
-      mb: 4,
+      fontSize: { xs: "1rem", md: "1.35rem" },
+      maxWidth: { xs: "100%", md: 650 },
+      mb: { xs: 3, md: 4 },
       color: "rgba(255,255,255,0.95)",
       textShadow: "1px 1px 6px rgba(0,0,0,0.5)",
     }}
@@ -1039,44 +1038,43 @@ const fadeInUp = keyframes`
     une solution unique, intégrée et puissante pour moderniser ton établissement.
   </Typography>
 
-  {/* Modul-Leiste für sofortiges Verständnis */}
-<Box
-  sx={{
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 1.5,
-    mb: 5,
-    justifyContent: { xs: "center", md: "flex-start" },
-  }}
->
-  {[
-    "QR-Ordering",
-    "Kiosque",
-    "Webshop",
-    "KDS",
-    "Écran de retrait",
-    "Encaissement digital",
-  ].map((item) => (
-    <Box
-      key={item}
-      sx={{
-        px: 2,
-        py: 0.8,
-        borderRadius: "20px",
-        backgroundColor: "rgba(37,211,102,0.18)",   // 💚 Grün wie oben
-        color: "#25D366",                            // 💚 Text in Marken-Grün
-        fontSize: "0.9rem",
-        fontWeight: 700,
-        backdropFilter: "blur(4px)",
-        border: "1px solid rgba(37,211,102,0.4)",    // 💚 grüner Rand
-        textTransform: "none",
-      }}
-    >
-      {item}
-    </Box>
-  ))}
-</Box>
-
+  {/* Modul-Leiste */}
+  <Box
+    sx={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 1.2,
+      mb: { xs: 4, md: 5 },
+      justifyContent: { xs: "center", md: "flex-start" },
+    }}
+  >
+    {[
+      "QR-Ordering",
+      "Kiosque",
+      "Webshop",
+      "KDS",
+      "Écran de retrait",
+      "Encaissement digital",
+    ].map((item) => (
+      <Box
+        key={item}
+        sx={{
+          px: { xs: 1.6, md: 2 },
+          py: { xs: 0.5, md: 0.8 },
+          borderRadius: "20px",
+          backgroundColor: "rgba(37,211,102,0.18)",
+          color: "#25D366",
+          fontSize: { xs: "0.8rem", md: "0.9rem" },
+          fontWeight: 700,
+          backdropFilter: "blur(4px)",
+          border: "1px solid rgba(37,211,102,0.4)",
+          textTransform: "none",
+        }}
+      >
+        {item}
+      </Box>
+    ))}
+  </Box>
 
   {/* CTA */}
   <Button
@@ -1085,10 +1083,10 @@ const fadeInUp = keyframes`
       bgcolor: "#25D366",
       color: "black",
       fontWeight: 700,
-      fontSize: "1.2rem",
+      fontSize: { xs: "1rem", md: "1.2rem" },
       borderRadius: "50px",
-      px: 5,
-      py: 1.6,
+      px: { xs: 4, md: 5 },
+      py: { xs: 1.3, md: 1.6 },
       textTransform: "none",
       boxShadow: "0 4px 15px rgba(0,0,0,0.25)",
       "&:hover": {
@@ -1103,6 +1101,7 @@ const fadeInUp = keyframes`
     Découvrir la plateforme Techgastro
   </Button>
 </Container>
+
 
 </Box>
 
