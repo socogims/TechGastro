@@ -571,6 +571,7 @@ const fadeInUp = keyframes`
         </Box>
       </Toolbar>
     </AppBar>
+    
           )}
 
     {/* Mobiles Vollbild-Menü */}
@@ -910,6 +911,9 @@ const fadeInUp = keyframes`
 
 
           {/* 🩺 HERO SECTION — Text links, Bild rechts, Buttons (gleiches Layout) */}
+ {/* Abstandshalter für die fixe AppBar */}
+<Toolbar sx={{ py: 1 }} />
+
  <Box
   sx={{
     position: "relative",
