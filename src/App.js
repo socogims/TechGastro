@@ -908,11 +908,11 @@ const fadeInUp = keyframes`
   )}
 </Box>
 
-
+<Toolbar sx={{ py: 1.5 }} />
 
           {/* 🩺 HERO SECTION — Text links, Bild rechts, Buttons (gleiches Layout) */}
  {/* Abstandshalter für die fixe AppBar */}
-<Toolbar sx={{ py: 1 }} />
+
 
  <Box
   sx={{
@@ -923,12 +923,15 @@ const fadeInUp = keyframes`
         borderRadius: "30px",
         boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
         mx: { xs: 2, md: 8 },
-        mt: { xs: 3, md: 5 },
+   
+        mt: { xs: 4, md: 6 }
   }}
 >
   {/* Animiertes Hintergrundbild */}
    {images.map((img, index) => (
+    
         <Box
+        
           key={img}
           sx={{
             position: "absolute",
@@ -941,6 +944,7 @@ const fadeInUp = keyframes`
             transition: "opacity 2s ease-in-out, transform 6s ease-in-out",
           }}
         />
+        
       ))}
 
   {/* Overlay */}
