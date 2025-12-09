@@ -914,204 +914,215 @@ const fadeInUp = keyframes`
  {/* Abstandshalter für die fixe AppBar */}
 
 
- <Box
+<Box
   sx={{
     position: "relative",
     color: "white",
     overflow: "hidden",
-    height: { xs: "90vh", md: "95vh" },
-        borderRadius: "30px",
-        boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
-        mx: { xs: 2, md: 8 },
-   
-        mt: { xs: 4, md: 6 }
+    height: { xs: "90vh", md: "92vh", lg: "88vh" }, // leicht kompakter auf großen Screens
+    borderRadius: "30px",
+    boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
+    mx: { xs: 2, md: 8 },
+    mt: { xs: 3, md: 7 },
   }}
 >
-  {/* Animiertes Hintergrundbild */}
-   {images.map((img, index) => (
-    
-        <Box
-        
-          key={img}
-          sx={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url(${img})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: index === current ? 1 : 0,
-            transform: index === current ? "scale(1)" : "scale(1.1)",
-            transition: "opacity 2s ease-in-out, transform 6s ease-in-out",
-          }}
-        />
-        
-      ))}
+  {/* Hintergrundbilder */}
+  {images.map((img, index) => (
+    <Box
+      key={img}
+      sx={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: `url(${img})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        opacity: index === current ? 1 : 0,
+        transform: index === current ? "scale(1)" : "scale(1.08)",
+        transition: "opacity 2s ease-in-out, transform 6s ease-in-out",
+      }}
+    />
+  ))}
 
   {/* Overlay */}
+  <Box
+    sx={{
+      position: "absolute",
+      inset: 0,
+      background:
+        "linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.3))",
+      zIndex: 1,
+    }}
+  />
+
+  {/* Content */}
+  <Container
+    maxWidth="lg"
+    sx={{
+      position: "relative",
+      zIndex: 2,
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: { xs: "center", md: "flex-start" },
+      textAlign: { xs: "center", md: "left" },
+      color: "white",
+      px: { xs: 2.5, md: 8 },
+    }}
+  >
+    {/* Badge oben */}
     <Box
+      sx={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 1,
+        mb: { xs: 1.3, md: 2 },
+        px: { xs: 1.4, md: 1.8 },
+        py: { xs: 0.45, md: 0.7 },
+        borderRadius: "999px",
+        backgroundColor: "rgba(37,211,102,0.18)",
+        backdropFilter: "blur(4px)",
+        border: "1px solid rgba(37,211,102,0.4)",
+      }}
+    >
+      <Box
         sx={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.3))",
-          zIndex: 1,
+          width: 8,
+          height: 8,
+          borderRadius: "50%",
+          bgcolor: "#25D366",
         }}
       />
 
-  {/* Content */}
-   <Container
-  maxWidth="lg"
-  sx={{
-    position: "relative",
-    zIndex: 2,
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: { xs: "center", md: "flex-start" },
-    textAlign: { xs: "center", md: "left" },
-    color: "white",
-    px: { xs: 2.5, md: 8 },
-  }}
->
-  {/* Badge oben */}
-  <Box
-    sx={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 1,
-      mb: { xs: 1.5, md: 2 },
-      px: { xs: 1.5, md: 1.8 },
-      py: { xs: 0.5, md: 0.7 },
-      borderRadius: "999px",
-      backgroundColor: "rgba(37,211,102,0.18)",
-      backdropFilter: "blur(4px)",
-      border: "1px solid rgba(37,211,102,0.4)",
-    }}
-  >
-    <Box
-      sx={{
-        width: 8,
-        height: 8,
-        borderRadius: "50%",
-        bgcolor: "#25D366",
-      }}
-    />
-
-    <Typography
-      variant="overline"
-      sx={{
-        color: "#25D366",
-        fontWeight: 700,
-        letterSpacing: { xs: 1.2, md: 1.8 },
-        textTransform: "uppercase",
-        fontSize: { xs: "0.65rem", md: "0.8rem" },
-      }}
-    >
-      Plateforme complète pour restaurants & cafés
-    </Typography>
-  </Box>
-
-  {/* Haupttitel */}
-  <Typography
-    variant="h2"
-    sx={{
-      fontWeight: 900,
-      fontSize: { xs: "2.1rem", sm: "2.4rem", md: "4.2rem" },
-      lineHeight: { xs: 1.2, md: 1.1 },
-      mb: { xs: 2, md: 3 },
-      textShadow: "3px 3px 12px rgba(0,0,0,0.6)",
-      maxWidth: { xs: "100%", md: 800 },
-    }}
-  >
-    Une plateforme unique.  
-    <br />
-    Tous les modules dont ton restaurant a besoin.
-  </Typography>
-
-  {/* Untertitel */}
-  <Typography
-    variant="body1"
-    sx={{
-      fontSize: { xs: "1rem", md: "1.35rem" },
-      maxWidth: { xs: "100%", md: 650 },
-      mb: { xs: 3, md: 4 },
-      color: "rgba(255,255,255,0.95)",
-      textShadow: "1px 1px 6px rgba(0,0,0,0.5)",
-    }}
-  >
-    Techgastro réunit <strong>QR-Ordering</strong>, <strong>Kiosque</strong>, 
-    <strong> Webshop</strong>, <strong>Moniteur de cuisine (KDS)</strong>, 
-    <strong> écran de retrait</strong> et plus encore —  
-    une solution unique, intégrée et puissante pour moderniser ton établissement.
-  </Typography>
-
-  {/* Modul-Leiste */}
-  <Box
-    sx={{
-      display: "flex",
-      flexWrap: "wrap",
-      gap: 1.2,
-      mb: { xs: 4, md: 5 },
-      justifyContent: { xs: "center", md: "flex-start" },
-    }}
-  >
-    {[
-      "QR-Ordering",
-      "Kiosque",
-      "Webshop",
-      "KDS",
-      "Écran de retrait",
-      "Encaissement digital",
-    ].map((item) => (
-      <Box
-        key={item}
+      <Typography
+        variant="overline"
         sx={{
-          px: { xs: 1.6, md: 2 },
-          py: { xs: 0.5, md: 0.8 },
-          borderRadius: "20px",
-          backgroundColor: "rgba(37,211,102,0.18)",
           color: "#25D366",
-          fontSize: { xs: "0.8rem", md: "0.9rem" },
           fontWeight: 700,
-          backdropFilter: "blur(4px)",
-          border: "1px solid rgba(37,211,102,0.4)",
-          textTransform: "none",
+          letterSpacing: { xs: 1.1, md: 1.8 },
+          textTransform: "uppercase",
+          fontSize: { xs: "0.62rem", sm: "0.68rem", md: "0.8rem" },
         }}
       >
-        {item}
-      </Box>
-    ))}
-  </Box>
+        Plateforme complète pour restaurants & cafés
+      </Typography>
+    </Box>
 
-  {/* CTA */}
-  <Button
-    variant="contained"
-    sx={{
-      bgcolor: "#25D366",
-      color: "black",
-      fontWeight: 700,
-      fontSize: { xs: "1rem", md: "1.2rem" },
-      borderRadius: "50px",
-      px: { xs: 4, md: 5 },
-      py: { xs: 1.3, md: 1.6 },
-      textTransform: "none",
-      boxShadow: "0 4px 15px rgba(0,0,0,0.25)",
-      "&:hover": {
-        bgcolor: "#1ebe5d",
-        transform: "scale(1.05)",
-        transition: "all 0.3s ease",
-      },
-    }}
-    href="https://wa.me/491622982160?text=Bonjour!"
-    target="_blank"
-  >
-    Découvrir la plateforme Techgastro
-  </Button>
-</Container>
+    {/* Haupttitel */}
+    <Typography
+      variant="h2"
+      sx={{
+        fontWeight: 900,
+        fontSize: {
+          xs: "1.9rem",   // kleine Handys
+          sm: "2.2rem",   // größere Handys
+          md: "3.1rem",   // Tablet / kleines Desktop
+          lg: "3.5rem",   // normales Desktop
+          xl: "3.8rem",   // sehr große Screens
+        },
+        lineHeight: { xs: 1.25, md: 1.15 },
+        mb: { xs: 1.8, md: 2.5 },
+        textShadow: "3px 3px 12px rgba(0,0,0,0.6)",
+        maxWidth: { xs: "100%", md: 800 },
+      }}
+    >
+      Une plateforme unique.
+      <br />
+      Tous les modules dont ton restaurant a besoin.
+    </Typography>
 
+    {/* Untertitel */}
+    <Typography
+      variant="body1"
+      sx={{
+        fontSize: {
+          xs: "0.95rem",
+          sm: "1rem",
+          md: "1.15rem",
+          lg: "1.2rem",
+        },
+        maxWidth: { xs: "100%", md: 650 },
+        mb: { xs: 2.8, md: 3.5 },
+        color: "rgba(255,255,255,0.95)",
+        textShadow: "1px 1px 6px rgba(0,0,0,0.5)",
+      }}
+    >
+      Techgastro réunit <strong>QR-Ordering</strong>, <strong>Kiosque</strong>, 
+      <strong> Webshop</strong>, <strong>Moniteur de cuisine (KDS)</strong>, 
+      <strong> écran de retrait</strong> et plus encore — une solution unique,
+      intégrée et puissante pour moderniser ton établissement.
+    </Typography>
 
+    {/* Modul-Leiste */}
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 1.1,
+        mb: { xs: 3.2, md: 4.2 },
+        justifyContent: { xs: "center", md: "flex-start" },
+      }}
+    >
+      {[
+        "QR-Ordering",
+        "Kiosque",
+        "Webshop",
+        "KDS",
+        "Écran de retrait",
+        "Encaissement digital",
+      ].map((item) => (
+        <Box
+          key={item}
+          sx={{
+            px: { xs: 1.5, md: 2 },
+            py: { xs: 0.45, md: 0.7 },
+            borderRadius: "20px",
+            backgroundColor: "rgba(37,211,102,0.18)",
+            color: "#25D366",
+            fontSize: { xs: "0.78rem", md: "0.9rem" },
+            fontWeight: 700,
+            backdropFilter: "blur(4px)",
+            border: "1px solid rgba(37,211,102,0.4)",
+            textTransform: "none",
+          }}
+        >
+          {item}
+        </Box>
+      ))}
+    </Box>
+
+    {/* CTA */}
+    <Button
+      variant="contained"
+      sx={{
+        bgcolor: "#25D366",
+        color: "black",
+        fontWeight: 700,
+        fontSize: {
+          xs: "0.95rem",
+          sm: "1rem",
+          md: "1.05rem",
+          lg: "1.1rem",
+        },
+        borderRadius: "50px",
+        px: { xs: 3.5, md: 5 },
+        py: { xs: 1.1, md: 1.4 },
+        textTransform: "none",
+        boxShadow: "0 4px 15px rgba(0,0,0,0.25)",
+        "&:hover": {
+          bgcolor: "#1ebe5d",
+          transform: "scale(1.04)",
+          transition: "all 0.3s ease",
+        },
+      }}
+      href="https://wa.me/491622982160?text=Bonjour!"
+      target="_blank"
+    >
+      Découvrir la plateforme Techgastro
+    </Button>
+  </Container>
 </Box>
+
 
 
          
