@@ -536,28 +536,30 @@ const fadeInUp = keyframes`
 {/* Desktop Button (MD+) */}
 <Button
   variant="contained"
-    href="https://wa.me/491622982160?text=Bonjour!"
+  href="https://wa.me/491622982160?text=Bonjour!"
   target="_blank"
-   sx={{
-      bgcolor: "linear-gradient(90deg, #25D366, #1ebe5d)",
-      color: "white",
-      fontWeight: 700,
-      borderRadius: "999px",
-      px: { xs: 3.8, md: 5 },
-      py: { xs: 1.3, md: 1.5 },
-      fontSize: { xs: "1rem", md: "1.1rem" },
-      textTransform: "none",
-      boxShadow: "0px 4px 12px rgba(0,0,0,0.2)",
-      "&:hover": {
-        bgcolor: "#b78c3d",
-        transform: "scale(1.06)",
-        boxShadow: "0px 5px 15px rgba(0,0,0,0.25)",
-      },
-      transition: "all 0.25s ease-in-out",
-    }}
+  sx={{
+    display: { xs: "none", sm: "inline-flex" }, // 👈 nur XS ausblenden
+    bgcolor: "linear-gradient(90deg, #25D366, #1ebe5d)",
+    color: "white",
+    fontWeight: 700,
+    borderRadius: "999px",
+    px: { xs: 3.8, md: 5 },
+    py: { xs: 1.3, md: 1.5 },
+    fontSize: { xs: "1rem", md: "1.1rem" },
+    textTransform: "none",
+    boxShadow: "0px 4px 12px rgba(0,0,0,0.2)",
+    "&:hover": {
+      bgcolor: "#1ebe5d",
+      transform: "scale(1.06)",
+      boxShadow: "0px 5px 15px rgba(0,0,0,0.25)",
+    },
+    transition: "all 0.25s ease-in-out",
+  }}
 >
   Jetzt testen
 </Button>
+
 
 
 
